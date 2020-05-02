@@ -1,4 +1,47 @@
 
+////////// create our hero choices
+class wizards{
+    constructor(name, health, staffAttack){
+        this.name = name;
+        this.health = health;
+        this.staffAttack = staffAttack;
+    }
+    attack = (enemy)=>{
+        console.log(`${this.name}: I am attacking you, ${enemy.name}`)
+        enemy.health = enemy.health - this.staffAttack;
+        console.log(`${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+    }
+}
+class evilWizards{
+    constructor(name, health, staffAttack){
+        this.name = name;
+        this.health = health;
+        this.staffAttack = staffAttack;
+    }
+    attack = (enemy)=>{
+        console.log(`${this.name}: I am attacking you, ${enemy.name}`)
+        enemy.health = enemy.health - this.staffAttack;
+        console.log(`${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+    }
+}
+
+let alatar = new wizards('Alatar', 20, 3);
+let ganandorf = new wizards('Ganandorf', 15, 5);
+let radagast = new wizards('Radagast', 18, 4);
+
+
+let drakius = new evilWizards('Drakius', 15, 3);
+let vatrix = new evilWizards('Vatrix', 20, 4);
+let ador = new evilWizards('Ador', 25, 6);
+
+
+// alatar.attack(drakius);
+// drakius.attack(alatar);
+
+
+
+
+
 
 
 ////////// SET QUESTION OBJECT with easy array of question arrays, medium, and hard. note different sizes of the key's arrays, will have to specify when we make random number wether the mode is easy, med, hard
@@ -76,21 +119,37 @@ hard: [
 
 
 
-let questionMode = questions.hard;
-let answerMode = answers.hard;
+
+/////// set userWizard and userMode
+let userWizard = alatar;
+let questionMode = 'easy';
+
+
+////////// choose gamemode and choose wizard functions for option button onclicks
+$('.modeOptions').on('click', (event)=>{
+    const $selectedOption = event.target.value;
+    questionMode = $selectedOption
+    console.log(questionMode);
+});
+
+$('.wizardOptions').on('click', (event)=>{
+    const userWizard = event.target.value;
+    console.log(userWizard);
+})
+//////// options buttons for wizards and game mode
 
 ///////////// if else determines numbers for random number lets, which is needed due to different easy, med, hard array lengths
 let questionNum;
 let arrayNum;
-if(questionMode == questions.easy){
+if(questionMode == 'easy'){
     // console.log('easy')
     questionNum = 10;
     arrayNum = 5;
-}else if(questionMode == questions.medium){
+}else if(questionMode == 'medium'){
     // console.log('medium')
     questionNum = 10;
     arrayNum = 10;
-}else if(questionMode == questions.hard){
+}else if(questionMode == 'hard'){
     // console.log('hard')
     questionNum = 12;
     arrayNum = 12;
@@ -108,64 +167,28 @@ let randomQuestionArray = Math.floor(Math.random() * arrayNum)
 // console.log(answerMode[randomQuestionArray][randomQuestion])
 
 
-////////// create our hero choices
-class wizards{
-    constructor(name, health, staffAttack){
-        this.name = name;
-        this.health = health;
-        this.staffAttack = staffAttack;
-    }
-    attack = (enemy)=>{
-        console.log(`${this.name}: I am attacking you, ${enemy.name}`)
-        enemy.health = enemy.health - this.staffAttack;
-        console.log(`${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
-    }
-}
-class evilWizards{
-    constructor(name, health, staffAttack){
-        this.name = name;
-        this.health = health;
-        this.staffAttack = staffAttack;
-    }
-    attack = (enemy)=>{
-        console.log(`${this.name}: I am attacking you, ${enemy.name}`)
-        enemy.health = enemy.health - this.staffAttack;
-        console.log(`${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
-    }
-}
-
-let alatar = new wizards('Alatar', 20, 3);
-let ganandorf = new wizards('Ganandorf', 15, 5);
-let radagast = new wizards('Radagast', 18, 4);
-
-
-let drakius = new evilWizards('Drakius', 15, 3);
-let vatrix = new evilWizards('Vatrix', 20, 4);
-let ador = new evilWizards('Ador', 25, 6);
-
-
-// alatar.attack(drakius);
-// drakius.attack(alatar);
 
 ////////////////////////////////////////////////////////
 ////////////// start page code
 ////////////////////////////////////////////////
 
 /////// instructions open button
-$('.instructionsOpen').on('click', ()=>{
-    const $instructions = $('.instructions');
-    $instructions.toggle('.instructionsShow');
+$('.mainInstructionsBtn').on('click', ()=>{
+    $('.instructions').toggle('.instructionsShow');
 })
-
-
 
 ///// close button for instructions
 $('.instructionsClose').on('click', ()=>{
-    const $instructions = $('.instructions');
-    $instructions.toggle('.instructionsShow');
+    $('.instructions').toggle('.instructionsShow');
 })
 
+////// options open button
+$('.mainOptionsBtn').on('click', ()=>{
+    $('.options').toggle('.optionsShow');
+})
 
-
-
+///// options close button
+$('.optionsCloseBtn').on('click', ()=>{
+    $('.options').toggle('.optsionsShow');
+})
 

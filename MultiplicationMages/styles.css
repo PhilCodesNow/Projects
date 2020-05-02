@@ -7,10 +7,19 @@
 body{
     position: relative;
 }
-.startHead{
+.startHead h2{
+    margin-top: 3rem;
+    font-size: 3rem;
+}
+.startHead h1{
     font-size: 12rem;
 }
-
+.mainButtonFlex{
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+/* INSTRUCTION POP UP */
 .instructions{
     position: absolute;
     top: 0;
@@ -35,4 +44,42 @@ body{
 .instructionsClose{
     font-size: 3rem;
     padding: 1rem;
+}
+/* OPTIONS POP UP */
+.options{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, .85);
+    display: block;
+}
+.optionsShow{
+    display: none;
+}
+.options div{
+    background-color: white;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20%;
+    font-size: 3rem;
+    padding: 2rem;
+}
+.optionsClose{
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+
+
+
+
+
+
+
+footer{
+    margin-top: 15rem;
 }
