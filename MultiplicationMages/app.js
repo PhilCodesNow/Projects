@@ -26,7 +26,7 @@ class evilWizards{
 }
 
 let alatar = new wizards('Alatar', 20, 3);
-let ganandorf = new wizards('Ganandorf', 15, 5);
+let ganandor = new wizards('Ganandorf', 15, 5);
 let radagast = new wizards('Radagast', 18, 4);
 
 
@@ -121,44 +121,77 @@ hard: [
 
 
 /////// set userWizard and userMode
-let userWizard = alatar;
-let questionMode = 'easy';
+
+
+const wizardSelectFunction = (choice)=>{
+    if(choice == 'radagast'){
+        var userWizard = radagast;
+        console.log(userWizard);
+        return userWizard;
+    }else if(choice == 'ganandor'){
+        var userWizard = ganandor;
+        console.log(userWizard);
+        return userWizard;
+    }else if(choice == 'alatar'){
+        var userWizard = alatar;
+        console.log(userWizard);
+        return userWizard;
+    }else{
+        console.log('no wizard selected')
+    }
+}
+const questionModeSelectFunction = (choice)=>{
+    if(choice == 'easy'){
+        var questionMode = 'easy';
+    }else if(choice == 'medium'){
+        var questionMode = 'medium';
+    }else if(choice == 'hard'){
+        var questionMode = 'hard';
+    }
+    console.log(questionMode)
+}
 
 
 ////////// choose gamemode and choose wizard functions for option button onclicks
 $('.modeOptions').on('click', (event)=>{
-    const $selectedOption = event.target.value;
-    questionMode = $selectedOption
-    console.log(questionMode);
+    event = questionModeSelectFunction(event.target.value)
+    // const $selectedOption = event.target.value;
+    // questionMode = $selectedOption
+    // console.log(questionMode);
+    // setUserMode(questionMode);
 });
 
 $('.wizardOptions').on('click', (event)=>{
-    const userWizard = event.target.value;
-    console.log(userWizard);
+    event = wizardSelectFunction(event.target.value);
+    // const placeholder = event.target.value;
+    // console.log(placeholder)
+    // userWizard = placeholder;
+    // console.log(userWizard);
+    // setUserWizard(userWizard);
 })
 //////// options buttons for wizards and game mode
 
 ///////////// if else determines numbers for random number lets, which is needed due to different easy, med, hard array lengths
-let questionNum;
-let arrayNum;
-if(questionMode == 'easy'){
-    // console.log('easy')
-    questionNum = 10;
-    arrayNum = 5;
-}else if(questionMode == 'medium'){
-    // console.log('medium')
-    questionNum = 10;
-    arrayNum = 10;
-}else if(questionMode == 'hard'){
-    // console.log('hard')
-    questionNum = 12;
-    arrayNum = 12;
-}
+// let questionNum;
+// let arrayNum;
+// if(questionMode == 'easy'){
+//     // console.log('easy')
+//     questionNum = 10;
+//     arrayNum = 5;
+// }else if(questionMode == 'medium'){
+//     // console.log('medium')
+//     questionNum = 10;
+//     arrayNum = 10;
+// }else if(questionMode == 'hard'){
+//     // console.log('hard')
+//     questionNum = 12;
+//     arrayNum = 12;
+// }
 
-//////////// random numbers for question and answer array
-let randomQuestion = Math.floor(Math.random() * questionNum)
+// //////////// random numbers for question and answer array
+// let randomQuestion = Math.floor(Math.random() * questionNum)
 
-let randomQuestionArray = Math.floor(Math.random() * arrayNum)
+// let randomQuestionArray = Math.floor(Math.random() * arrayNum)
 
 
 
@@ -191,4 +224,62 @@ $('.mainOptionsBtn').on('click', ()=>{
 $('.optionsCloseBtn').on('click', ()=>{
     $('.options').toggle('.optsionsShow');
 })
+
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+////////////////////////// Wizard Hut page code
+
+////// toggles start game on off
+$('.mainStartBtn').on('click', (event)=>{
+    $('.hut').toggle('hutShow');
+})
+
+$('.hutBackBtn').on('click', (event)=>{
+    $('.hut').toggle('hutShow');
+})
+
+
+
+
+
+
+
+
+
+
+
+
+// const setUserWizard=(wizard)=>{
+//     $('.hutWizard').html(`<h1>Wizard: ${wizard}</h1>`);
+
+// }
+// const setUserMode = (mode)=>{
+//     $('.hutGameMode').html(`<h1>Game Mode: ${mode}`);
+
+// }
+// const startGame=(wiz, mode)=>{
+//     console.log(wiz)
+//     console.log(mode)
+//     $('.hutGameMode').html(`<h1>Game Mode: ${questionMode}`);
+//     $('.hutWizard').html(`<h1>Wizard: ${userWizard.name}</h1>`);
+
+
+// }
+
+// const setUserWizard=(wizard)=>{
+//     $('footer').html(`<h1>Wizard: ${wizard}</h1>`);
+
+// }
+// const setUserMode = (mode)=>{
+//     $('footer').html(`<h1>Game Mode: ${mode}`);
+
+// }
+
+
+
+
+
+
+
+
 
