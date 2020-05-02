@@ -1,0 +1,38 @@
+*{
+    font-size: 70%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+body{
+    position: relative;
+}
+.startHead{
+    font-size: 12rem;
+}
+
+.instructions{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, .85);
+    display: block;
+}
+.instructionsShow{
+    display: none;
+}
+.instructions div{
+    background-color: white;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20%;
+    font-size: 3rem;
+    padding: 2rem;
+}
+.instructionsClose{
+    font-size: 3rem;
+    padding: 1rem;
+}

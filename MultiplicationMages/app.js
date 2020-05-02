@@ -38,22 +38,7 @@ hard: [
 ]};
 
 
-
-[
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
-    [2, 4, 6, 8, 10, 12, 14, 16, 18, 20], 
-    [3, 6, 9, 12, 15, 18, 21, 24, 27, 30], 
-    [4, 8, 12, 16, 20, 24, 28, 32, 36, 40], 
-    [5, 10, 15, 20, 25, 30, 35, 40, 45, 50], 
-    [6, 12, 18, 24, 30, 36, 42, 48, 54, 60], 
-    [7, 14, 21, 28, 35, 42, 49, 56, 63, 70], 
-    [8, 16, 24, 32, 40, 48, 56, 64, 72, 80], 
-    [9, 18, 27, 36, 45, 54, 63, 72, 81, 90]
-    ]
-
-
-
-
+///////////// answers object
 const answers = {easy: [
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
 [2, 4, 6, 8, 10, 12, 14, 16, 18, 20], 
@@ -98,15 +83,15 @@ let answerMode = answers.hard;
 let questionNum;
 let arrayNum;
 if(questionMode == questions.easy){
-    console.log('easy')
+    // console.log('easy')
     questionNum = 10;
     arrayNum = 5;
 }else if(questionMode == questions.medium){
-    console.log('medium')
+    // console.log('medium')
     questionNum = 10;
     arrayNum = 10;
 }else if(questionMode == questions.hard){
-    console.log('hard')
+    // console.log('hard')
     questionNum = 12;
     arrayNum = 12;
 }
@@ -119,15 +104,66 @@ let randomQuestionArray = Math.floor(Math.random() * arrayNum)
 
 
 
-console.log(questionMode[randomQuestionArray][randomQuestion]);
-console.log(answerMode[randomQuestionArray][randomQuestion])
+// console.log(questionMode[randomQuestionArray][randomQuestion]);
+// console.log(answerMode[randomQuestionArray][randomQuestion])
+
+
+////////// create our hero choices
+class wizards{
+    constructor(name, health, staffAttack){
+        this.name = name;
+        this.health = health;
+        this.staffAttack = staffAttack;
+    }
+    attack = (enemy)=>{
+        console.log(`${this.name}: I am attacking you, ${enemy.name}`)
+        enemy.health = enemy.health - this.staffAttack;
+        console.log(`${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+    }
+}
+class evilWizards{
+    constructor(name, health, staffAttack){
+        this.name = name;
+        this.health = health;
+        this.staffAttack = staffAttack;
+    }
+    attack = (enemy)=>{
+        console.log(`${this.name}: I am attacking you, ${enemy.name}`)
+        enemy.health = enemy.health - this.staffAttack;
+        console.log(`${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+    }
+}
+
+let alatar = new wizards('Alatar', 20, 3);
+let ganandorf = new wizards('Ganandorf', 15, 5);
+let radagast = new wizards('Radagast', 18, 4);
+
+
+let drakius = new evilWizards('Drakius', 15, 3);
+let vatrix = new evilWizards('Vatrix', 20, 4);
+let ador = new evilWizards('Ador', 25, 6);
+
+
+// alatar.attack(drakius);
+// drakius.attack(alatar);
+
+////////////////////////////////////////////////////////
+////////////// start page code
+////////////////////////////////////////////////
+
+/////// instructions open button
+$('.instructionsOpen').on('click', ()=>{
+    const $instructions = $('.instructions');
+    $instructions.toggle('.instructionsShow');
+})
 
 
 
-
-
-
-
+///// close button for instructions
+$('.instructionsClose').on('click', ()=>{
+    const $instructions = $('.instructions');
+    $instructions.toggle('.instructionsShow');
+})
 
 
 
