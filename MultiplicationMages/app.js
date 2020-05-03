@@ -71,9 +71,9 @@ let ganandor = new wizards('Ganandor', 15, 5);
 let radagast = new wizards('Radagast', 18, 4);
 
 
-let drakius = new evilWizards('Drakius', 15, 3);
-let vatrix = new evilWizards('Vatrix', 20, 4);
-let ador = new evilWizards('Ador', 25, 6);
+let drakius = new evilWizards('Drakius', 5, 3);
+let vatrix = new evilWizards('Vatrix', 5, 4);
+let ador = new evilWizards('Ador', 5, 6);
 
 let baddies = [drakius, vatrix, ador];
 
