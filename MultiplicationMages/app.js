@@ -25,7 +25,7 @@ class evilWizards{
     }
 }
 
-let alatar = new wizards('Alatar', 20, 3);
+let alatar = new wizards('Alatar', 1100, 3);
 let ganandor = new wizards('Ganandor', 15, 5);
 let radagast = new wizards('Radagast', 18, 4);
 
@@ -259,6 +259,7 @@ const userChoice=()=>{
 }
 
 const showBaddies = () =>{
+    $('.hutBaddies').children().remove();
     let $baddies = $('<p>').text(`${baddies[0].name}`)
     $('.hutBaddies').append($baddies);
 
@@ -291,21 +292,31 @@ $('.battleRetreatBtn').on('click', ()=>{
 /////////////// win function
 const youWin = () =>{
     console.log('you win');
+    $('.youWin').toggle('.youWinShow');
 }
 /////////////// lose function
 const youLose = () =>{
-    console.log('you lose');
+    // console.log('you lose');
+    $('.loss').toggle('lossShow');
+    $('.lossBtn').on('click', ()=>{
+        console.log('restart clicked');
+        location.reload();
+    })
 }
 
-/////////////// won battle, back to hut
+/////////////// won battle, back to hut btn
 const killedEnemy = ()=>{
-    console.log('enemy is killed!')
+    $('.killedEnemyH2').children().remove();
     $('.killedEnemy').toggle('.killedEnemyShow');
     const $killed = $('<p>').text(`You've destroyed ${baddies[0].name}`)
     $('.killedEnemyH2').append($killed);
     baddies.shift();
-    console.log(baddies);
+    if(baddies < 1){
+        youWin();
+    }
+    showBaddies();
 }
+
 $('.killedEnemyBtn').on('click', ()=>{
     $('.killedEnemy').toggle('.killedEnemyShow');
     $('.battle').toggle('.battleShow');
@@ -317,7 +328,8 @@ $('.killedEnemyBtn').on('click', ()=>{
 
 
 
-///////////// battle funciton
+///////////// battle function
+
 const battle = ()=>{
     let heroLives = true;
     let baddieLives = true;
@@ -326,16 +338,21 @@ const battle = ()=>{
 
     while(heroLives == true && baddieLives == true){
         if(heroTurn == true){
-            heroTurn = false;
-            userWizard.attack(baddies[0]);
-            if(baddies[0].health < 1){
-                baddieLives = false;
-                if(baddies.length < 1){
-                    youWin();
-                }else{
+            let randomA = randomQuestionArray;
+            let randomQ = randomQuestion;
+            let question = prompt(userQuestions[randomA][randomQ]);
+            if(question == userAnswers[randomA][randomQ]){
+                heroTurn = false;
+                userWizard.attack(baddies[0]);
+                if(baddies[0].health < 1){
                     killedEnemy();
+                    console.log(baddies);
+                    baddieLives = false;
+                }else{
+                    heroTurn = false;
                 }
             }
+            
         }else if(heroTurn == false){
             baddies[0].attack(userWizard);
             heroTurn = true;
