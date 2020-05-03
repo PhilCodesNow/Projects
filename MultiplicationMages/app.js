@@ -1,4 +1,45 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ////////// create our hero choices
 class wizards{
     constructor(name, health, staffAttack){
@@ -7,9 +48,9 @@ class wizards{
         this.staffAttack = staffAttack;
     }
     attack = (enemy)=>{
-        console.log(`${this.name}: I am attacking you, ${enemy.name}`)
         enemy.health = enemy.health - this.staffAttack;
-        console.log(`${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+        const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+        $('.battleDiv').append($banter);
     }
 }
 class evilWizards{
@@ -19,9 +60,9 @@ class evilWizards{
         this.staffAttack = staffAttack;
     }
     attack = (enemy)=>{
-        console.log(`${this.name}: I am attacking you, ${enemy.name}`)
         enemy.health = enemy.health - this.staffAttack;
-        console.log(`${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+        const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+        $('.battleDiv').append($banter);
     }
 }
 
@@ -154,8 +195,8 @@ let userQuestions = questions.easy;
 let userAnswers = answers.easy;
 let gameMode = 'easy';
 ///////// V these tell random numbers how high to go depending on array
-let arrayNum = 0
-let questionNum = 0;
+let arrayNum = 5;
+let questionNum = 10;
 
 ////////// choose gamemode and choose wizard functions for option button onclicks
 $('.modeOptions').on('click', (event)=>{
@@ -185,9 +226,9 @@ $('.modeOptions').on('click', (event)=>{
 
 
 //////////// random numbers for question and answer array
-let randomQuestionArray = Math.floor(Math.random() * arrayNum)
+// let randomQuestionArray = Math.floor(Math.random() * arrayNum)
 
-let randomQuestion = Math.floor(Math.random() * questionNum)
+// let randomQuestion = Math.floor(Math.random() * questionNum)
 
 
 
@@ -286,8 +327,9 @@ $('.battleRetreatBtn').on('click', ()=>{
     $('.battle').toggle('.battleShow');
 })
 
-
-
+/////// health scores
+$('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
+$('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
 
 /////////////// win function
 const youWin = () =>{
@@ -335,15 +377,20 @@ const battle = ()=>{
     let baddieLives = true;
     let heroTurn = true;
 
+    ///// look into timing problems
 
     while(heroLives == true && baddieLives == true){
         if(heroTurn == true){
-            let randomA = randomQuestionArray;
-            let randomQ = randomQuestion;
+            let randomA = Math.floor(Math.random() * arrayNum);
+            let randomQ = Math.floor(Math.random() * questionNum);
             let question = prompt(userQuestions[randomA][randomQ]);
             if(question == userAnswers[randomA][randomQ]){
                 heroTurn = false;
                 userWizard.attack(baddies[0]);
+                $('battleBadHealth').children().remove();
+                $('battleGoodHealth').children().remove();
+                $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
+                $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
                 if(baddies[0].health < 1){
                     killedEnemy();
                     console.log(baddies);
@@ -355,6 +402,10 @@ const battle = ()=>{
             
         }else if(heroTurn == false){
             baddies[0].attack(userWizard);
+            $('battleBadHealth').children().remove();
+            $('battleGoodHealth').children().remove();
+            $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
+            $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
             heroTurn = true;
             if(userWizard.health < 1){
                 heroLives = false;
@@ -363,9 +414,6 @@ const battle = ()=>{
         }
     }
 }
-
-
-
 
 
 

@@ -138,12 +138,19 @@ battle page  */
     background-size: cover;
     display: block;
 }
-.battleShow{
-    display: none;
+.battleDiv{
+    background-color: white;
+    height: 20rem;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 25%;
 }
 .battleRetreatBtn{
-    padding: 100px;
+    padding: 1rem;
     background: red;
+}
+.battleShow{
+    display: none;
 }
 .battleScene img{
     width: 20rem;
@@ -166,6 +173,7 @@ battle page  */
     position: absolute;
     left: 0;
     bottom: 28%;
+    font-size: 4rem;
 }
 .battleGoodHealth{
     background-color: white;
@@ -174,6 +182,7 @@ battle page  */
     position: absolute;
     right: 0;
     bottom: 28%;
+    font-size: 4rem;
 }
 
 
