@@ -8,6 +8,14 @@
 
 
 
+//  updateScores();
+//  const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+//  $('.battleDiv').append($banter);
+
+
+//  updateScores();
+//  const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+//  $('.battleDiv').append($banter);
 
 
 
@@ -20,23 +28,13 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//////////// update scores function
+const updateScores = () =>{
+    $('battleBadHealth').children().remove();
+    $('battleGoodHealth').children().remove();
+    $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
+    $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
+}
 
 
 
@@ -49,8 +47,8 @@ class wizards{
     }
     attack = (enemy)=>{
         enemy.health = enemy.health - this.staffAttack;
-        const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
-        $('.battleDiv').append($banter);
+        updateScores();
+        console.log(enemy.health);
     }
 }
 class evilWizards{
@@ -61,8 +59,7 @@ class evilWizards{
     }
     attack = (enemy)=>{
         enemy.health = enemy.health - this.staffAttack;
-        const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
-        $('.battleDiv').append($banter);
+        console.log(enemy.health);
     }
 }
 
@@ -327,9 +324,6 @@ $('.battleRetreatBtn').on('click', ()=>{
     $('.battle').toggle('.battleShow');
 })
 
-/////// health scores
-$('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
-$('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
 
 /////////////// win function
 const youWin = () =>{
@@ -372,25 +366,33 @@ $('.killedEnemyBtn').on('click', ()=>{
 
 ///////////// battle function
 
-const battle = ()=>{
+
+const askQuestion = () =>{
+    let randomA = Math.floor(Math.random() * arrayNum);
+    let randomQ = Math.floor(Math.random() * questionNum);
+    let question = prompt(userQuestions[randomA][randomQ]);
+    if(question == userAnswers[randomA][randomQ]){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+
+
+const battle = () =>{
+    updateScores();
     let heroLives = true;
     let baddieLives = true;
     let heroTurn = true;
 
-    ///// look into timing problems
 
-    while(heroLives == true && baddieLives == true){
-        if(heroTurn == true){
-            let randomA = Math.floor(Math.random() * arrayNum);
-            let randomQ = Math.floor(Math.random() * questionNum);
-            let question = prompt(userQuestions[randomA][randomQ]);
-            if(question == userAnswers[randomA][randomQ]){
+        $('.battleAttackBtn').on('click', () => {
+            if(askQuestion() == true){
                 heroTurn = false;
                 userWizard.attack(baddies[0]);
-                $('battleBadHealth').children().remove();
-                $('battleGoodHealth').children().remove();
-                $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
-                $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
+                updateScores();
                 if(baddies[0].health < 1){
                     killedEnemy();
                     console.log(baddies);
@@ -398,31 +400,160 @@ const battle = ()=>{
                 }else{
                     heroTurn = false;
                 }
-            }
-            
-        }else if(heroTurn == false){
-            baddies[0].attack(userWizard);
-            $('battleBadHealth').children().remove();
-            $('battleGoodHealth').children().remove();
-            $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
-            $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
+            }else{
+                baddies[0].attack(userWizard);
+            updateScores();
             heroTurn = true;
             if(userWizard.health < 1){
                 heroLives = false;
                 youLose();
             }
         }
-    }
+    })
+    
 }
 
 
 
+//  updateScores();
+//  const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+//  $('.battleDiv').append($banter);
+
+
+//  updateScores();
+//  const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
+//  $('.battleDiv').append($banter);
 
 
 
 
 
 
+// const randomQuestion = ()=>{
+//     let randomA = Math.floor(Math.random() * arrayNum);
+//     let randomQ = Math.floor(Math.random() * questionNum);
+//     let question = prompt(userQuestions[randomA][randomQ]);
+//     if(question == userAnswers[randomA][randomQ]){
+//         return true;
+//     }else{
+//         return false;
+//     }
+// }
+
+
+
+
+// const userAttacks = () =>{
+//     if(randomQuestion() == true){
+//         userWizard.attack(baddies[0]);
+//         if(baddies[0].health < 1){
+//             return false;
+//         }else{
+//             return true;
+//         }
+//     }else{
+//         return true;
+//     }
+// }
+
+
+
+// const baddiesAttack = () =>{
+//     baddies[0].attack(userWizard);
+//     if(userWizard.health < 1){
+//         return false;
+//     }else{
+//         return true;
+//     }
+// }
+
+
+// const battle = () =>{
+//     ///// set health score
+//     $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
+//     $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
+
+//     setTimeout(userAttacks, 1000);
+//     if(userAttacks == true){
+//         setTimeout(baddiesAttack, 1000);
+//     }else{
+//         killedEnemy();
+//     }
+// }
+
+
+
+// if(heroTurn == true){
+// {
+//         heroTurn = false;
+//         userWizard.attack(baddies[0]);
+//         if(baddies[0].health < 1){
+//             killedEnemy();
+//             console.log(baddies);
+//             baddieLives = false;
+//         }else{
+//             heroTurn = false;
+//                 }
+//     }
+// }else if(heroTurn == false){
+//     baddies[0].attack(userWizard);
+//     heroTurn = true;
+//     if(userWizard.health < 1){
+//         heroLives = false;
+//         youLose();
+//     }
+// }
+// }
+
+
+
+
+// const userAttacks = () =>{
+//     userWizard.attack(baddies[0]);
+
+// }
+
+// const baddiesAttack = () =>{
+//     baddies[0].attack(userWizard);
+
+// }
+
+
+// while(heroLives == true && baddieLives == true){
+//     if(heroTurn == true){
+//         let randomA = Math.floor(Math.random() * arrayNum);
+//         let randomQ = Math.floor(Math.random() * questionNum);
+//         let question = prompt(userQuestions[randomA][randomQ]);
+//         if(question == userAnswers[randomA][randomQ]){
+//             heroTurn = false;
+//             userWizard.attack(baddies[0]);
+//             $('battleBadHealth').children().remove();
+//             $('battleGoodHealth').children().remove();
+//             $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
+//             $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
+//             if(baddies[0].health < 1){
+//                 killedEnemy();
+//                 console.log(baddies);
+//                 baddieLives = false;
+//             }else{
+//                 heroTurn = false;
+//             }
+//         }
+        
+//     }else if(heroTurn == false){
+//         baddies[0].attack(userWizard);
+//         $('battleBadHealth').children().remove();
+//         $('battleGoodHealth').children().remove();
+//         $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
+//         $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
+//         heroTurn = true;
+//         if(userWizard.health < 1){
+//             heroLives = false;
+//             youLose();
+//         }
+//     }
+// }
+// }
 
 
 
@@ -491,3 +622,53 @@ const battle = ()=>{
 
 
 
+////////////////////////////////////////
+//////// ////////working code
+
+// const askQuestion = () =>{
+//     let randomA = Math.floor(Math.random() * arrayNum);
+//     let randomQ = Math.floor(Math.random() * questionNum);
+//     let question = prompt(userQuestions[randomA][randomQ]);
+//     if(question == userAnswers[randomA][randomQ]){
+//         return true;
+//     }else{
+//         return false;
+//     }
+// }
+
+
+
+
+// const battle = () =>{
+//     let heroLives = true;
+//     let baddieLives = true;
+//     let heroTurn = true;
+
+
+//     while(heroLives == true && baddieLives == true){
+//         updateScores();
+//         if(heroTurn == true){
+//             if(askQuestion() == true){
+//                 heroTurn = false;
+//                 userWizard.attack(baddies[0]);
+//                 if(baddies[0].health < 1){
+//                     killedEnemy();
+//                     console.log(baddies);
+//                     baddieLives = false;
+//                 }else{
+//                     heroTurn = false;
+//                 }
+//             }else{
+//                 heroTurn = false;
+//             }
+            
+//         }else if(heroTurn == false){
+//             baddies[0].attack(userWizard);
+//             heroTurn = true;
+//             if(userWizard.health < 1){
+//                 heroLives = false;
+//                 youLose();
+//             }
+//         }
+//     }
+// }

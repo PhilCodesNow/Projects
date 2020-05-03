@@ -134,7 +134,8 @@ battle page  */
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url('https://lh3.googleusercontent.com/proxy/O02F3RHijjmv1B-wZnr_RnG22gqi1C8YnLBLFNfFH4WqhYAtI1VaBk3azzIB4UvgrH8UxCeAaI7AWevkOXwISsnUi2U2OkTxAFYy23PDOZik_vCcSCcJkrre6E2j_ezoA4gTzzNF');
+    background-color: white;
+    /* background-image: url('https://lh3.googleusercontent.com/proxy/O02F3RHijjmv1B-wZnr_RnG22gqi1C8YnLBLFNfFH4WqhYAtI1VaBk3azzIB4UvgrH8UxCeAaI7AWevkOXwISsnUi2U2OkTxAFYy23PDOZik_vCcSCcJkrre6E2j_ezoA4gTzzNF'); */
     background-size: cover;
     display: block;
 }
@@ -144,6 +145,7 @@ battle page  */
     width: 50%;
     margin: 0 auto;
     margin-top: 25%;
+    font-size: 5rem;
 }
 .battleRetreatBtn{
     padding: 1rem;
@@ -175,6 +177,12 @@ battle page  */
     bottom: 28%;
     font-size: 4rem;
 }
+.battleBadHealth p{
+    font-size: 5rem;
+}
+.battleGoodHealth p{
+    font-size: 5rem;
+}
 .battleGoodHealth{
     background-color: white;
     width: 20rem;
@@ -184,8 +192,6 @@ battle page  */
     bottom: 28%;
     font-size: 4rem;
 }
-
-
 
 
 /* 
