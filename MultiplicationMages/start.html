@@ -15,7 +15,7 @@
 <body>
     <header class="startHead">
       <h1>Multiplication Mages</h1>
-      <h2>By Phil Mayo using HTML, CSS, Javascript, and jQuery</h2>
+      <h2>By Phil Mayo - using HTML, CSS, Javascript, and jQuery</h2>
     </header>
     <main>
       <div class="mainButtonFlex">
@@ -52,18 +52,48 @@
     <ul>
 
       <li><a href="https://www.fantasynamegenerators.com/wizard-names.php" target="_blank"><button>Wizard Names</button></a></li>
+      <li><a href="wZnr_RnG22gqi1C8YnLBLFNfFH4WqhYAtI1VaBk3azzIB4UvgrH8UxCeAaI7AWevkOXwISsnUi2U2OkTxAFYy23PDOZik_vCcSCcJkrre6E2j_ezoA4gTzzNF" target="_blank"><button>Background</button></a></li>
+      <li><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7J_ozgQAezI2aMu8F9M16MgJQpCzgMLt1KnNdi3LTc7gUQ8Qe&usqp=CAU" target="_blank"><button>Bad Wizard</button></a></li>
+      <li><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRIjqcSfXcbcfLF931Kn7mWtb7Cipll0GWHdV6iZz-jxbfhxMwV&usqp=CAU" target="_blank"><button>Good Wizard</button></a></li>
     </ul>
   </footer>
   <main class="hut hutShow">
     <div class="hutHud">
       <h1 class="hutHudWizard">Wizard: </h1>
       <h1 class="hutHudMode">Game Difficulty: </h1>
+      <h1 class="hutBaddies">Evil Wizards Left</h1>
     </div>
     <div class="hutButtons">
       <button class="hutBackBtn">back</button>
-      <button>Next Battle!</button>
+      <button class="hutBattleBtn" onclick="battle()">Next Battle!</button>
     </div>
 
   </main>
+  <main class="battle battleShow">
+    <div class="battleDiv">
+      <button class="battleRetreatBtn">Retreat</button>
+    </div>
+    <div class="battleScene">
+      <img class="battleBadWiz" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7J_ozgQAezI2aMu8F9M16MgJQpCzgMLt1KnNdi3LTc7gUQ8Qe&usqp=CAU">
+      <div class="battleBadHealth">
+
+      </div>
+      <img class="battleGoodWiz" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRIjqcSfXcbcfLF931Kn7mWtb7Cipll0GWHdV6iZz-jxbfhxMwV&usqp=CAU">
+      <div class="battleGoodHealth">
+
+      </div>
+    </div>
+  </main>
+  <section class="killedEnemy killedEnemyShow">
+    <div>
+      <h2 class="killedEnemyH2">You've Won!</h2>
+      <button class="killedEnemyBtn">Back To Your Wizard Hut</button>
+    </div>
+  </section>
+  <section class="loss lossShow">
+    <div>
+      <h2>You Lose!</h2>
+    </div>
+  </section>
 </body>
 </html>

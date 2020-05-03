@@ -120,8 +120,100 @@ Hut Page
 
 
 
+/* 
 
 
+
+////////////////////////////////////
+////////////////////////////////////
+battle page  */
+
+.battle{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('https://lh3.googleusercontent.com/proxy/O02F3RHijjmv1B-wZnr_RnG22gqi1C8YnLBLFNfFH4WqhYAtI1VaBk3azzIB4UvgrH8UxCeAaI7AWevkOXwISsnUi2U2OkTxAFYy23PDOZik_vCcSCcJkrre6E2j_ezoA4gTzzNF');
+    background-size: cover;
+    display: block;
+}
+.battleShow{
+    display: none;
+}
+.battleRetreatBtn{
+    padding: 100px;
+    background: red;
+}
+.battleScene img{
+    width: 20rem;
+    height: 20rem;
+}
+.battleBadWiz{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.battleGoodWiz{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.battleBadHealth{
+    background-color: white;
+    width: 20rem;
+    height: 5rem;
+    position: absolute;
+    left: 0;
+    bottom: 28%;
+}
+.battleGoodHealth{
+    background-color: white;
+    width: 20rem;
+    height: 5rem;
+    position: absolute;
+    right: 0;
+    bottom: 28%;
+}
+
+
+
+
+/* 
+
+////////////////////////////////////
+////////////////////////////////////
+killed enemy  */
+
+.killedEnemy{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .85);
+    display: block;
+}
+.killedEnemy div{
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 10%;
+    width: 50%;
+    font-size: 10rem;
+    padding: 5rem;
+}
+.killedEnemyBtn{
+    font-size: 5rem;
+    padding: 1rem;
+}
+.killedEnemyShow{
+    display: none;
+}
+
+/* /////////////////////////////////////////////
+////////////////////////////////////////////// 
+loss window
+*/
 
 
 

@@ -26,7 +26,7 @@ class evilWizards{
 }
 
 let alatar = new wizards('Alatar', 20, 3);
-let ganandor = new wizards('Ganandorf', 15, 5);
+let ganandor = new wizards('Ganandor', 15, 5);
 let radagast = new wizards('Radagast', 18, 4);
 
 
@@ -34,11 +34,7 @@ let drakius = new evilWizards('Drakius', 15, 3);
 let vatrix = new evilWizards('Vatrix', 20, 4);
 let ador = new evilWizards('Ador', 25, 6);
 
-
-// alatar.attack(drakius);
-// drakius.attack(alatar);
-
-
+let baddies = [drakius, vatrix, ador];
 
 
 
@@ -120,84 +116,96 @@ hard: [
 
 
 
-/////// set userWizard and userMode
+/////// set userWizard and userQuestions
 
 
-const wizardSelectFunction = (choice)=>{
-    if(choice == 'radagast'){
-        var userWizard = radagast;
-        console.log(userWizard);
-        return userWizard;
-    }else if(choice == 'ganandor'){
-        var userWizard = ganandor;
-        console.log(userWizard);
-        return userWizard;
-    }else if(choice == 'alatar'){
-        var userWizard = alatar;
-        console.log(userWizard);
-        return userWizard;
-    }else{
-        console.log('no wizard selected')
-    }
-}
-const questionModeSelectFunction = (choice)=>{
-    if(choice == 'easy'){
-        var questionMode = 'easy';
-    }else if(choice == 'medium'){
-        var questionMode = 'medium';
-    }else if(choice == 'hard'){
-        var questionMode = 'hard';
-    }
-    console.log(questionMode)
-}
+// const wizardSelectFunction = (choice)=>{
+//     if(choice == 'radagast'){
+//         var userWizard = radagast;
+//         console.log(userWizard);
+//         return userWizard;
+//     }else if(choice == 'ganandor'){
+//         var userWizard = ganandor;
+//         console.log(userWizard);
+//         return userWizard;
+//     }else if(choice == 'alatar'){
+//         var userWizard = alatar;
+//         console.log(userWizard);
+//         return userWizard;
+//     }else{
+//         console.log('no wizard selected')
+//     }
+// }
+// const questionModeSelectFunction = (choice)=>{
+//     if(choice == 'easy'){
+//         var questionMode = 'easy';
+//     }else if(choice == 'medium'){
+//         var questionMode = 'medium';
+//     }else if(choice == 'hard'){
+//         var questionMode = 'hard';
+//     }
+//     console.log(questionMode)
+// }
 
+
+
+let userWizard = alatar;
+let userQuestions = questions.easy;
+let userAnswers = answers.easy;
+let gameMode = 'easy';
+///////// V these tell random numbers how high to go depending on array
+let arrayNum = 0
+let questionNum = 0;
 
 ////////// choose gamemode and choose wizard functions for option button onclicks
 $('.modeOptions').on('click', (event)=>{
-    event = questionModeSelectFunction(event.target.value)
-    // const $selectedOption = event.target.value;
-    // questionMode = $selectedOption
-    // console.log(questionMode);
-    // setUserMode(questionMode);
+    thisMode = event.target.value;
+    if(thisMode == 'easy'){
+        userQuestions = questions.easy;
+        userAnswers = answers.easy;
+        gameMode = 'easy';
+        arrayNum = 5;
+        questionNum = 10;
+    }else if(thisMode == 'medium'){
+        userQuestions = questions.medium;
+        userAnswers = answers.medium;
+        gameMode = 'medium';
+        arrayNum = 10;
+        questionNum = 10;
+    }else if(thisMode == 'hard'){
+        userQuestions = questions.hard;
+        userAnswers = answers.hard;
+        gameMode = 'hard';
+        arrayNum = 12;
+        questionNum = 12;
+    }else{
+        console.log('modeoptions on click aint workin')
+    }
 });
 
+
+//////////// random numbers for question and answer array
+let randomQuestionArray = Math.floor(Math.random() * arrayNum)
+
+let randomQuestion = Math.floor(Math.random() * questionNum)
+
+
+
 $('.wizardOptions').on('click', (event)=>{
-    event = wizardSelectFunction(event.target.value);
-    // const placeholder = event.target.value;
-    // console.log(placeholder)
-    // userWizard = placeholder;
-    // console.log(userWizard);
-    // setUserWizard(userWizard);
+    thisWiz = event.target.value;
+    if(thisWiz == 'alatar'){
+        userWizard = alatar;
+    }else if(thisWiz == 'ganandor'){
+        userWizard = ganandor;
+    }else if(thisWiz == 'radagast'){
+        userWizard = radagast;
+    }else{
+        console.log('wizard options aint working');
+    }
+   
+    console.log(userWizard);
 })
 //////// options buttons for wizards and game mode
-
-///////////// if else determines numbers for random number lets, which is needed due to different easy, med, hard array lengths
-// let questionNum;
-// let arrayNum;
-// if(questionMode == 'easy'){
-//     // console.log('easy')
-//     questionNum = 10;
-//     arrayNum = 5;
-// }else if(questionMode == 'medium'){
-//     // console.log('medium')
-//     questionNum = 10;
-//     arrayNum = 10;
-// }else if(questionMode == 'hard'){
-//     // console.log('hard')
-//     questionNum = 12;
-//     arrayNum = 12;
-// }
-
-// //////////// random numbers for question and answer array
-// let randomQuestion = Math.floor(Math.random() * questionNum)
-
-// let randomQuestionArray = Math.floor(Math.random() * arrayNum)
-
-
-
-
-// console.log(questionMode[randomQuestionArray][randomQuestion]);
-// console.log(answerMode[randomQuestionArray][randomQuestion])
 
 
 
@@ -230,13 +238,122 @@ $('.optionsCloseBtn').on('click', ()=>{
 ////////////////////////// Wizard Hut page code
 
 ////// toggles start game on off
-$('.mainStartBtn').on('click', (event)=>{
+$('.mainStartBtn').on('click', ()=>{
+    $('.hut').toggle('hutShow');
+    userChoice();
+})
+
+$('.hutBackBtn').on('click', ()=>{
     $('.hut').toggle('hutShow');
 })
 
-$('.hutBackBtn').on('click', (event)=>{
-    $('.hut').toggle('hutShow');
+
+const userChoice=()=>{
+    $('.hutHudWizard').children().remove();
+    $('.hutHudMode').children().remove();
+    const $wizChoice = $('<p>').text(`${userWizard.name}`);
+    const $modeChoice = $('<p>').text(`${gameMode}`)
+    $('.hutHudWizard').append($wizChoice);
+    $('.hutHudMode').append($modeChoice);
+    showBaddies();
+}
+
+const showBaddies = () =>{
+    let $baddies = $('<p>').text(`${baddies[0].name}`)
+    $('.hutBaddies').append($baddies);
+
+    for(let i = 1; i < baddies.length; i++){
+        $baddies = $('<p>').text(`${baddies[i].name}`)
+        $('.hutBaddies').append($baddies);
+
+    }
+}
+
+
+
+
+
+
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+////////////////////////// battle page code
+
+$('.hutBattleBtn').on('click', ()=>{
+    $('.battle').toggle('.battleShow');
 })
+$('.battleRetreatBtn').on('click', ()=>{
+    $('.battle').toggle('.battleShow');
+})
+
+
+
+
+/////////////// win function
+const youWin = () =>{
+    console.log('you win');
+}
+/////////////// lose function
+const youLose = () =>{
+    console.log('you lose');
+}
+
+/////////////// won battle, back to hut
+const killedEnemy = ()=>{
+    console.log('enemy is killed!')
+    $('.killedEnemy').toggle('.killedEnemyShow');
+    const $killed = $('<p>').text(`You've destroyed ${baddies[0].name}`)
+    $('.killedEnemyH2').append($killed);
+    baddies.shift();
+    console.log(baddies);
+}
+$('.killedEnemyBtn').on('click', ()=>{
+    $('.killedEnemy').toggle('.killedEnemyShow');
+    $('.battle').toggle('.battleShow');
+})
+
+
+
+
+
+
+
+///////////// battle funciton
+const battle = ()=>{
+    let heroLives = true;
+    let baddieLives = true;
+    let heroTurn = true;
+
+
+    while(heroLives == true && baddieLives == true){
+        if(heroTurn == true){
+            heroTurn = false;
+            userWizard.attack(baddies[0]);
+            if(baddies[0].health < 1){
+                baddieLives = false;
+                if(baddies.length < 1){
+                    youWin();
+                }else{
+                    killedEnemy();
+                }
+            }
+        }else if(heroTurn == false){
+            baddies[0].attack(userWizard);
+            heroTurn = true;
+            if(userWizard.health < 1){
+                heroLives = false;
+                youLose();
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -253,7 +370,7 @@ $('.hutBackBtn').on('click', (event)=>{
 //     $('.hutWizard').html(`<h1>Wizard: ${wizard}</h1>`);
 
 // }
-// const setUserMode = (mode)=>{
+// const setuserQuestions = (mode)=>{
 //     $('.hutGameMode').html(`<h1>Game Mode: ${mode}`);
 
 // }
@@ -270,7 +387,7 @@ $('.hutBackBtn').on('click', (event)=>{
 //     $('footer').html(`<h1>Wizard: ${wizard}</h1>`);
 
 // }
-// const setUserMode = (mode)=>{
+// const setuserQuestions = (mode)=>{
 //     $('footer').html(`<h1>Game Mode: ${mode}`);
 
 // }
@@ -279,6 +396,32 @@ $('.hutBackBtn').on('click', (event)=>{
 
 
 
+
+///////////// if else determines numbers for random number lets, which is needed due to different easy, med, hard array lengths
+// let questionNum;
+// let arrayNum;
+// if(questionMode == 'easy'){
+//     // console.log('easy')
+//     questionNum = 10;
+//     arrayNum = 5;
+// }else if(questionMode == 'medium'){
+//     // console.log('medium')
+//     questionNum = 10;
+//     arrayNum = 10;
+// }else if(questionMode == 'hard'){
+//     // console.log('hard')
+//     questionNum = 12;
+//     arrayNum = 12;
+// }
+
+
+
+
+
+
+
+// console.log(questionMode[randomQuestionArray][randomQuestion]);
+// console.log(answerMode[randomQuestionArray][randomQuestion])
 
 
 
