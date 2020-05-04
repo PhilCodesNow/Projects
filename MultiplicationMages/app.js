@@ -365,20 +365,25 @@ $('.killedEnemyBtn').on('click', ()=>{
 
 
 ///////////// battle function
+let $input = '';
+let $question = '';
+let randomA = '';
+let randomQ = '';
 
 
-const askQuestion = () =>{
-    let randomA = Math.floor(Math.random() * arrayNum);
-    let randomQ = Math.floor(Math.random() * questionNum);
-    let question = prompt(userQuestions[randomA][randomQ]);
-    if(question == userAnswers[randomA][randomQ]){
-        return true;
-    }else{
-        return false;
-    }
+
+const readQuestion = () =>{
+    $('.questionDiv').children().remove();
+    randomA = Math.floor(Math.random() * arrayNum);
+    randomQ = Math.floor(Math.random() * questionNum);
+    $question = $('<p>').text(`${userQuestions[randomA][randomQ]}`);
+    $('.questionDiv').append($question);
 }
 
-
+const clearQuestion = () =>{
+    $('.questionDiv').children().remove();
+    $('.inputVal').val('');
+}
 
 
 const battle = () =>{
@@ -389,26 +394,33 @@ const battle = () =>{
 
 
         $('.battleAttackBtn').on('click', () => {
-            if(askQuestion() == true){
-                heroTurn = false;
-                userWizard.attack(baddies[0]);
-                updateScores();
-                if(baddies[0].health < 1){
-                    killedEnemy();
-                    console.log(baddies);
-                    baddieLives = false;
-                }else{
+            readQuestion()
+            $('.inputSubmit').on('click', () =>{
+                $input = $('.inputVal').val();
+                if($input == userAnswers[randomA][randomQ]){
                     heroTurn = false;
+                    userWizard.attack(baddies[0]);
+                    updateScores();
+                    clearQuestion();
+                    if(baddies[0].health < 1){
+                        killedEnemy();
+                        console.log(baddies);
+                        baddieLives = false;
+                    }else{
+                        heroTurn = false;
+                    }
+                }else{
+                    baddies[0].attack(userWizard);
+                    updateScores();
+                    heroTurn = true;
+                    if(userWizard.health < 1){
+                        heroLives = false;
+                        youLose();
+                    }
                 }
-            }else{
-                baddies[0].attack(userWizard);
-            updateScores();
-            heroTurn = true;
-            if(userWizard.health < 1){
-                heroLives = false;
-                youLose();
-            }
-        }
+            })
+            
+
     })
     
 }
