@@ -192,6 +192,38 @@ battle page  */
     bottom: 28%;
     font-size: 4rem;
 }
+.goodSpellCall{
+    transition: .5s ease-in;
+    transform: translate(-70rem, 0);
+}
+.goodSpellRecall{
+    position: absolute;
+    right: 17%;
+    bottom: 7%;
+}
+.badSpellCall{
+    transition: .5s ease-in;
+    transform: translate(70rem, 0);
+}
+.badSpellRecall{
+    left: 17%;
+    bottom: 7%;
+}
+.badWizardSpell{
+    position: absolute;
+    left: 17%;
+    bottom: 7%;
+    max-width: 10rem;
+    max-height: 10rem;
+}
+.goodWizardSpell{
+    position: absolute;
+    right: 17%;
+    bottom: 7%;
+    max-width: 10rem;
+    max-height: 10rem;
+}
+
 
 
 /* 

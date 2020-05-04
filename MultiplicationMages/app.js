@@ -2,32 +2,6 @@
 
 
 
-
-
-
-
-
-
-//  updateScores();
-//  const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
-//  $('.battleDiv').append($banter);
-
-
-//  updateScores();
-//  const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
-//  $('.battleDiv').append($banter);
-
-
-
-
-
-
-
-
-
-
-
-
 //////////// update scores function
 const updateScores = () =>{
     $('battleBadHealth').children().remove();
@@ -152,38 +126,6 @@ hard: [
 ]}
 
 
-
-
-/////// set userWizard and userQuestions
-
-
-// const wizardSelectFunction = (choice)=>{
-//     if(choice == 'radagast'){
-//         var userWizard = radagast;
-//         console.log(userWizard);
-//         return userWizard;
-//     }else if(choice == 'ganandor'){
-//         var userWizard = ganandor;
-//         console.log(userWizard);
-//         return userWizard;
-//     }else if(choice == 'alatar'){
-//         var userWizard = alatar;
-//         console.log(userWizard);
-//         return userWizard;
-//     }else{
-//         console.log('no wizard selected')
-//     }
-// }
-// const questionModeSelectFunction = (choice)=>{
-//     if(choice == 'easy'){
-//         var questionMode = 'easy';
-//     }else if(choice == 'medium'){
-//         var questionMode = 'medium';
-//     }else if(choice == 'hard'){
-//         var questionMode = 'hard';
-//     }
-//     console.log(questionMode)
-// }
 
 
 
@@ -352,15 +294,31 @@ const killedEnemy = ()=>{
     }
     showBaddies();
 }
-
+/////////// end of each round
 $('.killedEnemyBtn').on('click', ()=>{
     $('.killedEnemy').toggle('.killedEnemyShow');
     $('.battle').toggle('.battleShow');
 })
+const goodSpellRemove = ()=>{
+    $('.goodWizardSpell').removeClass('goodSpellCall');
+    $('.goodWizardSpell').addClass('goodSpellRecall');
+}
+baddieSpellRemove = () =>{
+    $('.badWizardSpell').removeClass('badSpellCall');
+    $('.badWizardSpell').addClass('baddSpellRecall');
+
+}
+const baddieSpell = ()=>{
+    console.log('baddie spell');
+    $('.badWizardSpell').addClass('badSpellCall');
+    setTimeout(baddieSpellRemove, 500);
+}
 
 
-
-
+const goodSpell = ()=>{
+    $('.goodWizardSpell').addClass('goodSpellCall');
+    setTimeout(goodSpellRemove, 500);
+}
 
 
 
@@ -398,6 +356,7 @@ const battle = () =>{
             $('.inputSubmit').on('click', () =>{
                 $input = $('.inputVal').val();
                 if($input == userAnswers[randomA][randomQ]){
+                    goodSpell();
                     heroTurn = false;
                     userWizard.attack(baddies[0]);
                     updateScores();
@@ -411,6 +370,7 @@ const battle = () =>{
                     }
                 }else{
                     baddies[0].attack(userWizard);
+                    baddieSpell();
                     updateScores();
                     heroTurn = true;
                     if(userWizard.health < 1){
@@ -622,6 +582,38 @@ const battle = () =>{
 //     arrayNum = 12;
 // }
 
+
+
+/////// set userWizard and userQuestions
+
+
+// const wizardSelectFunction = (choice)=>{
+//     if(choice == 'radagast'){
+//         var userWizard = radagast;
+//         console.log(userWizard);
+//         return userWizard;
+//     }else if(choice == 'ganandor'){
+//         var userWizard = ganandor;
+//         console.log(userWizard);
+//         return userWizard;
+//     }else if(choice == 'alatar'){
+//         var userWizard = alatar;
+//         console.log(userWizard);
+//         return userWizard;
+//     }else{
+//         console.log('no wizard selected')
+//     }
+// }
+// const questionModeSelectFunction = (choice)=>{
+//     if(choice == 'easy'){
+//         var questionMode = 'easy';
+//     }else if(choice == 'medium'){
+//         var questionMode = 'medium';
+//     }else if(choice == 'hard'){
+//         var questionMode = 'hard';
+//     }
+//     console.log(questionMode)
+// }
 
 
 
