@@ -6,13 +6,17 @@
 }
 body{
     position: relative;
+    background-image: linear-gradient(#9D50BB, #6E48AA);
+    background-size: cover;
 }
 .startHead h2{
     margin-top: 3rem;
     font-size: 3rem;
 }
 .startHead h1{
-    font-size: 12rem;
+    font-size: 9rem;
+    margin: 0 auto;
+    margin-top: 2rem;
 }
 .mainButtonFlex{
     margin-top: 10rem;
@@ -79,19 +83,6 @@ body{
 footer{
     margin-top: 15rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
