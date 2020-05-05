@@ -18,7 +18,7 @@
 <body>
   <div class="start startShow">
       <header class="startHead">
-        <h1>Multiplication Mages</h1>
+        <h1 id="shimmer">Multiplication Mages</h1>
         <h2>By Phil Mayo - using HTML, CSS, Javascript, and jQuery</h2>
       </header>
       <main>
@@ -57,6 +57,7 @@
           <li><a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank"><button>Color Picker</button></a></li>
           <li><a href="https://lh3.googleusercontent.com/proxy/TGKgDKOhOgtUlK18r4wmIL6hn4_pbZn30F8neZSF0wv0AMiMPajn4zwMIotWUpaZxT4EzFOYqP1RNRX1Cm4rTCWprubr8kw" target="_blank"><button>Scroll</button></a></li>
           <li><a href="https://cubic-bezier.com" target="_blank"><button>Cubic Bezier</button></a></li>
+          <li><a href="https://www.youtube.com/watch?v=ajhJnfS_FK4" target="_blank"><button>Css Animation</button></a></li>
         </ul>
       </footer>
     </div>
@@ -70,14 +71,30 @@
     <section class="options optionsShow">
       <div class="optionsDiv">
         <div class="optionsDivWizards">
-          <button class="wizardOptions" value="alatar">Alatar</button>
-          <button class="wizardOptions" value= "ganandor">Ganandor</button>
-          <button class="wizardOptions" value="radagast">Radagast</button>
+          <div class="optionsAlatar">
+            <button class="wizardOptions" value="alatar">Alatar</button>
+              <p>Staff: 3</p>
+              <p>Health: 20</p>
+          </div>
+          <div class="optionsGanandor">
+            <button class="wizardOptions" value= "ganandor">Ganandor</button>
+            <p>Staff: 5</p>
+            <p>Health: 15</p>
+          </div>
+          <div class="optionsRadagast">
+            <button class="wizardOptions" value="radagast">Radagast</button>
+            <p>Staff: 4</p>
+            <p>Health: 18</p>
         </div>
+      </div>
         <div class="optionsDivMode">
+
           <button class="modeOptions" value="easy">Easy</button>
+
           <button class="modeOptions" value="medium">Medium</button>
+
           <button class="modeOptions" value="hard">Hard</button>
+
         </div>
         <button class=optionsCloseBtn>Close</button>
       </div>
