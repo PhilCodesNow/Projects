@@ -2,15 +2,7 @@
 
 
 
-//////////// update scores function
-const updateScores = () =>{
-    $('battleBadHealth').children().remove();
-    $('battleGoodHealth').children().remove();
-    $('.battleBadHealth').append('<p>').text(`${baddies[0].name}`);
-    $('.battleGoodHealth').append('<p>').text(`${userWizard.name}`);
-    $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
-    $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
-}
+
 
 
 
@@ -333,6 +325,21 @@ let $question = '';
 let randomA = '';
 let randomQ = '';
 
+//////////// update scores function
+const updateScores = () =>{
+    $('battleBadHealth').children().remove();
+    $('battleGoodHealth').children().remove();
+    $('.battleBadHealth').append('<p>').text(`${baddies[0].name}`);
+    $('.battleGoodHealth').append('<p>').text(`${userWizard.name}`);
+    $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
+    $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
+    ///////// updates wizard health in hut
+    $('.hutHudHealth').children().remove();
+    const $wizHealth = $('<p>').text(`${userWizard.health}`)
+    $('.hutHudHealth').append($wizHealth);
+
+
+}
 
 
 const readQuestion = () =>{

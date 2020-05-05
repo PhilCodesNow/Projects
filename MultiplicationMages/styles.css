@@ -279,7 +279,7 @@ Hut Page
 .hutFlex{
     display: flex;
     justify-content: space-evenly;
-    margin-top: 82%;
+    margin-top: 90%;
     align-items: flex-start;
 }
 .hutBackBtn{
