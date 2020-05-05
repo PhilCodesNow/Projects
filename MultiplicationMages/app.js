@@ -194,7 +194,7 @@ $('.wizardOptions').on('click', (event)=>{
 ////////////////////////////////////////////////
 
 /////// instructions open button
-$('.mainInstructionsBtn').on('click', ()=>{
+$('#mainInstructionsBtn').on('click', ()=>{
     $('.instructions').toggle('.instructionsShow');
 })
 
@@ -204,7 +204,7 @@ $('.instructionsClose').on('click', ()=>{
 })
 
 ////// options open button
-$('.mainOptionsBtn').on('click', ()=>{
+$('#mainOptionsBtn').on('click', ()=>{
     $('.options').toggle('.optionsShow');
 })
 
