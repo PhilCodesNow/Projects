@@ -174,9 +174,21 @@ footer button:hover{
     margin: 0 auto;
     background-color: rgba(0, 0, 0, .85);
     display: block;
+    animation-name: instructionPush;
+    animation-duration: .4s;
 }
 .instructionsShow{
     display: none;
+    animation-name: instructionPop;
+    animation-duration: .4s;
+}
+@keyframes instructionPush{
+    0%{width: 0%; height: 0vh; top: 40%; left: 40%;}
+    100%{width: 100%; height: 100vh;}
+}
+@keyframes instructionPop{
+    0%{width: 100%; height: 100vh;}
+    100%{width: 0%; height: 0vh;}
 }
 .instructions div{
     background-color: white;
@@ -229,22 +241,63 @@ Hut Page
     font-size: 10rem;
     height: 100vh;
     width: 100%;
-    background-color: blueviolet;
+    background-color: rgba(38, 33, 21, 1);
     position: absolute;
     top: 0;
     display: block;
+    color: white;
 }
 .hutShow{
     display: none;
 }
+.hutImg{
+    position: absolute;
+    bottom: 30%;
+    left: 0;
+    width: 100%;
+}
+.hutHudWizard{
+    position: absolute;
+    top: 0;
+    left: 5%;
+}
+.hutHudMode{
+    position: absolute;
+    top: 0;
+    right: 2%;
+}
+.hutHudHealth{
+    z-index: 2;
+    display: inline;
 
-
-
+}
+.hutBaddies{
+    display: inline;
+}
+.hutButtons{
+    margin-top: 3rem;
+}
+.hutFlex{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 82%;
+    align-items: flex-start;
+}
+.hutBackBtn{
+    font-family: 'Metamorphous', sans-serif;
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.hutBattleBtn{
+    font-family: 'Metamorphous', sans-serif;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
 
 /* 
-
-
-
 ////////////////////////////////////
 ////////////////////////////////////
 battle page  */

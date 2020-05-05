@@ -231,10 +231,13 @@ $('.hutBackBtn').on('click', ()=>{
 const userChoice=()=>{
     $('.hutHudWizard').children().remove();
     $('.hutHudMode').children().remove();
+    $('.hutHudHealth').children().remove();
     const $wizChoice = $('<p>').text(`${userWizard.name}`);
     const $modeChoice = $('<p>').text(`${gameMode}`)
+    const $wizHealth = $('<p>').text(`${userWizard.health}`)
     $('.hutHudWizard').append($wizChoice);
     $('.hutHudMode').append($modeChoice);
+    $('.hutHudHealth').append($wizHealth);
     showBaddies();
 }
 
