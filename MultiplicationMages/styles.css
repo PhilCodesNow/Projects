@@ -267,7 +267,6 @@ Hut Page
     right: 2%;
 }
 .hutHudHealth{
-    z-index: 2;
     display: inline;
 
 }
@@ -285,7 +284,6 @@ Hut Page
 }
 .hutBackBtn{
     font-family: 'Metamorphous', sans-serif;
-    z-index: 10;
     position: absolute;
     bottom: 0;
     left: 0;

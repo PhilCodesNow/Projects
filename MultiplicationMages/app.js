@@ -6,8 +6,10 @@
 const updateScores = () =>{
     $('battleBadHealth').children().remove();
     $('battleGoodHealth').children().remove();
-    $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
+    $('.battleBadHealth').append('<p>').text(`${baddies[0].name}`);
+    $('.battleGoodHealth').append('<p>').text(`${userWizard.name}`);
     $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
+    $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
 }
 
 
@@ -37,7 +39,7 @@ class evilWizards{
     }
 }
 
-let alatar = new wizards('Alatar', 1100, 3);
+let alatar = new wizards('Alatar', 20, 3);
 let ganandor = new wizards('Ganandor', 15, 5);
 let radagast = new wizards('Radagast', 18, 4);
 
