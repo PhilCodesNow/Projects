@@ -319,7 +319,7 @@ const goodSpell = ()=>{
 
 
 
-///////////// battle function
+///////////// battle functions
 let $input = '';
 let $question = '';
 let randomA = '';
@@ -327,16 +327,19 @@ let randomQ = '';
 
 //////////// update scores function
 const updateScores = () =>{
-    $('battleBadHealth').children().remove();
-    $('battleGoodHealth').children().remove();
-    $('.battleBadHealth').append('<p>').text(`${baddies[0].name}`);
-    $('.battleGoodHealth').append('<p>').text(`${userWizard.name}`);
+    //////// removes healh and name every question
+    $('.battleBadHealth').children().remove();
+    $('.battleGoodHealth').children().remove();
+    $('.battleGoodName').children().remove();
+    $('.battleBadName').children().remove();
+    ////////// shows new health and name every question
+    $('.battleBadName').append('<p>').text(`${baddies[0].name}`);
+    $('.battleGoodName').append('<p>').text(`You`);
     $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
     $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
     ///////// updates wizard health in hut
     $('.hutHudHealth').children().remove();
-    const $wizHealth = $('<p>').text(`${userWizard.health}`)
-    $('.hutHudHealth').append($wizHealth);
+    $('.hutHudHealth').append('<p>').text(`${userWizard.health}`)
 
 
 }

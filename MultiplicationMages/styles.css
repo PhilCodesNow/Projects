@@ -312,16 +312,46 @@ battle page  */
     display: block;
 }
 .battleDiv{
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0);
     height: 20rem;
     width: 50%;
     margin: 0 auto;
     margin-top: 25%;
     font-size: 5rem;
 }
+.questionDiv{
+    text-shadow: 3px 3px 10px white;
+}
 .battleRetreatBtn{
-    padding: 1rem;
-    background: red;
+    padding: .7rem;
+    font-family: 'Metamorphous', sans-serif;
+    margin: 1rem;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    text-shadow: 3px 3px 10px white;
+}
+.battleAttackBtn{
+    padding: .7rem;
+    font-family: 'Metamorphous', sans-serif;
+    margin: 1rem;
+    background-color: rgba(0,0,0,0);
+    border: none;
+        text-shadow: 3px 3px 10px white;
+}
+.inputSubmit{
+    padding: .7rem;
+    font-family: 'Metamorphous', sans-serif;
+    margin: 1rem;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    text-shadow: 3px 3px 10px white;
+    display: block;
+    margin: 0 auto;
+}
+.inputVal{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    box-shadow: 5px 5px 15px black;
 }
 .battleShow{
     display: none;
@@ -340,10 +370,11 @@ battle page  */
     right: 0;
     bottom: 0;
 }
-.battleBadHealth{
-    background-color: white;
+.battleBadHud{
+    background-color: rgba(0,0,0,0);
+    text-shadow: 3px 3px 10px white;
     width: 20rem;
-    height: 5rem;
+    height: 6rem;
     position: absolute;
     left: 0;
     bottom: 28%;
@@ -355,10 +386,11 @@ battle page  */
 .battleGoodHealth p{
     font-size: 5rem;
 }
-.battleGoodHealth{
-    background-color: white;
+.battleGoodHud{
+    background-color: rgba(0,0,0,0);
+    text-shadow: 3px 3px 10px white;
     width: 20rem;
-    height: 5rem;
+    height: 6rem;
     position: absolute;
     right: 0;
     bottom: 28%;
