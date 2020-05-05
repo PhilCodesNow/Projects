@@ -15,17 +15,37 @@ body{
 .startHead h2{
     margin-top: 3rem;
     font-size: 3rem;
-    color: #0707fa;
+    color: #01018c;
     font-size: 2.6rem;
-    text-shadow: 3px 3px 5px rgb(255, 255, 0);
-
+    left: 13%;
+    text-shadow: 2px 2px 5px rgb(255, 255, 0);
+    animation-name: bounceH2;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    position: absolute;
 }
+@keyframes bounceH2{
+    0%{top: 0;}
+    100%{top: 12%;}
+}
+
 .startHead h1{
     font-size: 9rem;
     margin: 0 auto;
     margin-top: 2rem;
-    color: #ffff00;
-    text-shadow: 5px 5px 10px rgb(23, 23, 23);
+    color: rgba(255, 255, 0, 0);
+    animation-name: startHeadColorChange;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+@keyframes startHeadColorChange{
+    0%{color: rgba(255, 255, 0, 0);}
+    25%{color: rgba(255, 255, 0, .25);}
+    50%{color: rgba(255, 255, 0, .5);}
+    75%{color: rgba(255, 255, 0, .75)}
+    100%{color: rgba(255, 255, 0, 1);     text-shadow: 5px 5px 10px rgb(23, 23, 23);
+}
 }
 .start{
     position: absolute;
@@ -44,16 +64,28 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    position: absolute;
+    left: 42%;
+    animation-name: appear;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes appear{
+    0%{top: 0;}
+    100%{top: 20%;}
 }
 
 .mainButtonFlex button{
     font-size: 2.5rem;
     background-color: white;
     font-family: 'Metamorphous', sans-serif;
+    
 }
 .mainBtn{
     position: relative;
     margin: .5rem 0;
+    
 }
 .dismainBtn:hover{
     transition: 1s;
@@ -85,19 +117,26 @@ body{
     overflow: visible;
 }
 #mainStartBtn p{
-    right: 48%;
+    right: 42%;
 }
 #mainOptionsBtn p{
-    right: 46.8%;
+    right: 38%;
 }
 #mainInstructionsBtn p{
-    right: 44.5%;
+    right: 25%;
 }
 
 
 /* footer styles */
 footer{
-    margin-top: 10rem;
+    margin-top: 50rem;
+    animation-name: reveal;
+    animation-duration: 2s;
+    overflow: hidden;
+}
+@keyframes reveal{
+    0%{width: 0%;}
+    100%{width: 100%;}
 }
 footer h2{
     font-size: 5rem;
@@ -113,10 +152,16 @@ footer ul{
 }
 footer button{
     font-size: 3rem;
-    background-color: blue;
+    font-family: 'Metamorphous', sans-serif;
+    background-color: rgba(0, 0, 0, 0);
+    color: #01018c;
     border: none;
     margin: 1rem;
-    
+    animation: reveal;
+    animation-duration: 2s;
+}
+footer button:hover{
+    text-shadow: 3px 3px 5px yellow;
 }
 
 /* INSTRUCTION POP UP */
