@@ -16,7 +16,6 @@ class wizards{
     attack = (enemy)=>{
         enemy.health = enemy.health - this.staffAttack;
         updateScores();
-        console.log(enemy.health);
     }
 }
 class evilWizards{
@@ -27,7 +26,6 @@ class evilWizards{
     }
     attack = (enemy)=>{
         enemy.health = enemy.health - this.staffAttack;
-        console.log(enemy.health);
     }
 }
 
@@ -235,17 +233,21 @@ $('.hutBackBtn').on('click', ()=>{
 const userChoice=()=>{
     $('.hutHudWizard').children().remove();
     $('.hutHudMode').children().remove();
-    $('.hutHudHealth').children().remove();
     const $wizChoice = $('<p>').text(`${userWizard.name}`);
     const $modeChoice = $('<p>').text(`${gameMode}`)
-    const $wizHealth = $('<p>').text(`${userWizard.health}`)
     $('.hutHudWizard').append($wizChoice);
     $('.hutHudMode').append($modeChoice);
-    $('.hutHudHealth').append($wizHealth);
     showBaddies();
 }
 
 const showBaddies = () =>{
+    //////// updates user health
+    $('.hutHudHealth').children().remove();
+    const $wizHealth = $('<p>').text(`${userWizard.health}`)
+    $('.hutHudHealth').append($wizHealth);
+
+
+    /////// updates baddie array
     $('.hutBaddies').children().remove();
     let $baddies = $('<p>').text(`${baddies[0].name}`)
     $('.hutBaddies').append($baddies);
@@ -270,6 +272,7 @@ $('.hutBattleBtn').on('click', ()=>{
     $('.battle').toggle('.battleShow');
 })
 $('.battleRetreatBtn').on('click', ()=>{
+    // userChoice();
     $('.battle').toggle('.battleShow');
 })
 
@@ -368,44 +371,49 @@ const clearQuestion = () =>{
     $('.inputVal').val('');
 }
 
+const submitBtn = () =>{$('.inputSubmit').on('click', () =>{
+    $('.questionDiv').children().remove();
+    $input = $('.inputVal').val();
+    console.log($input);
+    console.log(userAnswers[randomA][randomQ]);
+    if($input == userAnswers[randomA][randomQ]){
+        console.log('true, attack')
+        goodSpell();
+        userWizard.attack(baddies[0]);
+        updateScores();
+        clearQuestion();
+        if(baddies[0].health < 1){
+            killedEnemy();
+            console.log(baddies);
+            baddieLives = false;
+        }
+    }else{
+        console.log('baddie attacks')
+        baddies[0].attack(userWizard);
+        baddieSpell();
+        updateScores();
+        if(userWizard.health < 1){
+            heroLives = false;
+            youLose();
+        }
+    }
+})}
+
+
+const battleBtn = () =>{$('.battleAttackBtn').on('click', () => {
+    readQuestion()
+
+})
+}
+
 
 const battle = () =>{
     updateScores();
-    let heroLives = true;
-    let baddieLives = true;
-    let heroTurn = true;
+    // let heroLives = true;
+    // let baddieLives = true;
+    battleBtn();
+    submitBtn();
 
-
-        $('.battleAttackBtn').on('click', () => {
-            readQuestion()
-            $('.inputSubmit').on('click', () =>{
-                $input = $('.inputVal').val();
-                if($input == userAnswers[randomA][randomQ]){
-                    goodSpell();
-                    // heroTurn = false;
-                    userWizard.attack(baddies[0]);
-                    updateScores();
-                    clearQuestion();
-                    if(baddies[0].health < 1){
-                        killedEnemy();
-                        console.log(baddies);
-                        baddieLives = false;
-                    }
-                }else{
-                    baddies[0].attack(userWizard);
-                    baddieSpell();
-                    updateScores();
-                    heroTurn = true;
-                    if(userWizard.health < 1){
-                        heroLives = false;
-                        youLose();
-                    }
-                }
-            })
-            
-
-    })
-    
 }
 
 
