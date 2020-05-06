@@ -462,30 +462,33 @@ battle page  */
     bottom: 0;
 }
 .battleBadHud{
-    background-color: rgba(0,0,0,0);
-    text-shadow: 3px 3px 10px white;
-    width: 20rem;
-    height: 6rem;
+    background-color: rgba(206, 206, 206, .4);
+    text-shadow: 1px 1px 20px white;
+    width: 24rem;
+    height: 18rem;
+    border-radius: 10px;
     position: absolute;
     left: 0;
-    bottom: 28%;
-    font-size: 4rem;
+    bottom: 19%;
+    font-size: 9rem;
 }
 .battleBadHealth p{
     font-size: 5rem;
 }
 .battleGoodHealth p{
     font-size: 5rem;
+    
 }
 .battleGoodHud{
-    background-color: rgba(0,0,0,0);
-    text-shadow: 3px 3px 10px white;
-    width: 20rem;
-    height: 6rem;
+    background-color: rgba(206, 206, 206, .4);
+    text-shadow: 1px 1px 20px white;
+    width: 24rem;
+    height: 18rem;
+    border-radius: 10px;
     position: absolute;
     right: 0;
-    bottom: 28%;
-    font-size: 4rem;
+    bottom: 19%;
+    font-size: 9rem;
 }
 .goodSpellCall{
     transition: .5s ease-in;
