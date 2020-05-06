@@ -268,14 +268,7 @@ const showBaddies = () =>{
 ////////////////////////////////////////////////////
 ////////////////////////// battle page code
 
-$('.hutBattleBtn').on('click', ()=>{
-    $('.battle').toggle('.battleShow');
-})
-$('.battleRetreatBtn').on('click', ()=>{
-    userChoice();
-    $('.battle').toggle('.battleShow');
 
-})
 
 
 /////////////// win function
@@ -353,6 +346,16 @@ const updateScores = () =>{
     $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
 }
 
+/////////// basic battle buttons needed here for update score when you go to battle from hut
+$('.hutBattleBtn').on('click', ()=>{
+    $('.battle').toggle('.battleShow');
+    updateScores();
+})
+$('.battleRetreatBtn').on('click', ()=>{
+    userChoice();
+    $('.battle').toggle('.battleShow');
+
+})
 
 const readQuestion = () =>{
     $('.questionDiv').children().remove();
@@ -397,13 +400,14 @@ const submitBtn = () =>{$('.inputSubmit').on('click', () =>{
 
 
 const battleBtn = () =>{$('.battleAttackBtn').on('click', () => {
-    readQuestion()
+    updateScores();
+    readQuestion();
 
 })
 }
 
 
-const battle = () =>{
+setTimeout(battle = () =>{
     updateScores();
     // let heroLives = true;
     // let baddieLives = true;
@@ -412,7 +416,7 @@ const battle = () =>{
     $('.battleRetreateBtn').on('click', ()=>{
         
     })    
-}
+}, 500);
 
 
 
