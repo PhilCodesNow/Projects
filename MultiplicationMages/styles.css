@@ -30,39 +30,24 @@ body{
 }
 
 .startHead h1{
-    color: rgba(255, 255, 0, 1);
+    color: rgba(0, 0, 0,0);
     font-size: 9rem;
     margin: 0 auto;
     margin-top: 2rem;
-    /* color: rgba(255, 255, 0, 1); */
-    color: transparent;
-    -webkit-background-clip: text;
-    background-size: contain;
-    width: 100%;
-    background: linear-gradient(45deg, rgba(255,255,255,0) 45%,rgba(255,255,255,0.8) 50%,rgba(255,255,255,0) 55%,rgba(255,255,255,0) 100%);
-    text-align: center;
-    background-size: 200%;
-    animation: shine 2s infinite;
-    /* animation-name: startHeadColorChange;
+    animation-name: startHeadColorChange;
     animation-duration: 2s;
     animation-delay: 2s;
-    animation-fill-mode: forwards; */
-
-    /* animation-delay: 4s; */
-}
-@keyframes shine{
-    0%{background-position: -100%;}
-    100%{background-position: 100%;}
+    animation-fill-mode: forwards;
 }
 
-/* @keyframes startHeadColorChange{
+@keyframes startHeadColorChange{
     0%{color: rgba(255, 255, 0, 0);}
     25%{color: rgba(255, 255, 0, .25);}
     50%{color: rgba(255, 255, 0, .5);}
     75%{color: rgba(255, 255, 0, .75)}
     100%{color: rgba(255, 255, 0, 1);     text-shadow: 5px 5px 10px rgb(23, 23, 23);
 }
-} */
+}
 
 
 .start{
@@ -168,6 +153,9 @@ footer ul{
     flex-wrap: wrap;
     list-style-type: none;
 }
+footer li{
+    margin: 0 1rem;
+}
 footer button{
     font-size: 3rem;
     font-family: 'Metamorphous', sans-serif;
@@ -203,6 +191,8 @@ footer button:hover{
     font-size: 4rem;
     width: 80%;
     padding: 2rem;
+    text-shadow: 2px 2px 3px rgb(60, 60, 60);    box-shadow: 0px 0px 20px white;
+
 }
 .instructionsClose{
     margin: 2rem 0;
@@ -212,6 +202,14 @@ footer button:hover{
     border: none;
     border-radius: 45%;
     font-family: 'Metamorphous', sans-serif;
+    box-shadow: 3px 3px 5px black;
+}
+.instructionsClose:hover{
+    text-shadow: 3px 3px 3px white;
+    transform: translateY(-2px);
+}
+.instructionsClose:active{
+    transform: translateY(2px);
 }
 
 
@@ -234,17 +232,20 @@ footer button:hover{
     margin: 0 auto;
     margin-top: 20%;
     background-image: linear-gradient(#667db6, #0082c8, #0082c8, #667db6);
+    box-shadow: 0px 0px 20px white;
 }
 .options div{
     width: 70%;
     font-size: 3rem;
-    padding: 2rem;
+    /* padding: 3rem; */
 }
 .optionsDivWizards{
     display: flex;
     flex-direction: row;
     margin: 0 auto;
     justify-content: space-evenly;
+    text-shadow: 2px 2px 3px rgb(60, 60, 60);
+
 }.optionsDivWizards button{
     font-size: 2rem;
     padding: 1rem;
@@ -252,6 +253,14 @@ footer button:hover{
     background-color: #0426e8;
     border: none;
     font-family: 'Metamorphous', sans-serif;
+    box-shadow: 3px 3px 5px black;
+}
+.optionsDivWizards button:hover{
+    text-shadow: 3px 3px 3px white;
+    transform: translateY(-2px);
+}
+.optionsDivWizards button:active{
+    transform: translateY(2px);
 }
 .optionsDivMode{
     margin: 0 auto;
@@ -260,23 +269,21 @@ footer button:hover{
 }
 .optionsAlatar{
     display: inline;
-    padding: none;
+    padding: 2rem 2rem;
     margin: none;
 }
 .optionsGanandor{
     display: inline;
-    padding: none;
+    padding: 2rem 2rem;
     margin: none;
 }
 .optionsRadagast{
     display: inline;
-    padding: none;
+    padding: 2rem 2rem;
     margin: none;
 }
-.optionsDivWizards ul{
-    margin: 0 auto;
-    list-style-type: none;
-    display: inline;
+.optionsDivWizards p{
+    margin-top: 1rem;
 }
 .modeOptions{
     padding: 1rem;
@@ -284,15 +291,35 @@ footer button:hover{
     background-color: #0426e8;
     border: none;
     font-family: 'Metamorphous', sans-serif;
+    box-shadow: 3px 3px 5px black;
+}
+.modeOptions:hover{
+    text-shadow: 3px 3px 3px white;
+    transform: translateY(-2px);
+}
+.modeOptions:active{
+    transform: translateY(2px);
 }
 .optionsCloseBtn{
     font-size: 2rem;
     padding: 1rem;
+    margin: 5rem auto;
     border-radius: 45%;
     background-color: #0426e8;
     border: none;
     font-family: 'Metamorphous', sans-serif;
+    box-shadow: 3px 3px 5px black;
+
 }
+.optionsCloseBtn:hover{
+    text-shadow: 3px 3px 3px white;
+    transform: translateY(-2px);
+}
+.optionsCloseBtn:active{
+    transform: translateY(2px);
+}
+
+
 /* 
 
 ///////////////////////////////////////

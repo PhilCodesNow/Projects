@@ -36,9 +36,9 @@ let ganandor = new wizards('Ganandor', 15, 5);
 let radagast = new wizards('Radagast', 18, 4);
 
 
-let drakius = new evilWizards('Drakius', 5, 13);
-let vatrix = new evilWizards('Vatrix', 5, 18);
-let ador = new evilWizards('Ador', 5, 20);
+let drakius = new evilWizards('Drakius', 17, 3);
+let vatrix = new evilWizards('Vatrix', 20, 5);
+let ador = new evilWizards('Ador', 24, 6);
 
 let baddies = [drakius, vatrix, ador];
 
@@ -128,25 +128,31 @@ let userQuestions = questions.easy;
 let userAnswers = answers.easy;
 let gameMode = 'easy';
 ///////// V these tell random numbers how high to go depending on array
+//////// defaults to easy
 let arrayNum = 5;
 let questionNum = 10;
 
-////////// choose gamemode and choose wizard functions for option button onclicks
+////////// choose gamemode 
+//////////// options on start page
 $('.modeOptions').on('click', (event)=>{
+    $('.optionsDivMode button').css('background-color', '#0426e8');
     thisMode = event.target.value;
     if(thisMode == 'easy'){
+        $('.modeOptionsEasy').css('background-color', 'whitesmoke');
         userQuestions = questions.easy;
         userAnswers = answers.easy;
         gameMode = 'easy';
         arrayNum = 5;
         questionNum = 10;
     }else if(thisMode == 'medium'){
+        $('.modeOptionsMedium').css('background-color', 'whitesmoke');
         userQuestions = questions.medium;
         userAnswers = answers.medium;
         gameMode = 'medium';
         arrayNum = 10;
         questionNum = 10;
     }else if(thisMode == 'hard'){
+        $('.modeOptionsHard').css('background-color', 'whitesmoke');
         userQuestions = questions.hard;
         userAnswers = answers.hard;
         gameMode = 'hard';
@@ -158,28 +164,28 @@ $('.modeOptions').on('click', (event)=>{
 });
 
 
-//////////// random numbers for question and answer array
-// let randomQuestionArray = Math.floor(Math.random() * arrayNum)
-
-// let randomQuestion = Math.floor(Math.random() * questionNum)
 
 
-
+/////////// sets userWizard, makes buttons light up when clicked
+/////// options on start page
 $('.wizardOptions').on('click', (event)=>{
+    $('.optionsDivWizards button').css('background-color', '#0426e8');    
     thisWiz = event.target.value;
     if(thisWiz == 'alatar'){
         userWizard = alatar;
+        $('.wizardOptionsAlatar').css('background-color', 'whitesmoke');
     }else if(thisWiz == 'ganandor'){
         userWizard = ganandor;
+        $('.wizardOptionsGanandor').css('background-color', 'whitesmoke');
     }else if(thisWiz == 'radagast'){
         userWizard = radagast;
+        $('.wizardOptionsRadagast').css('background-color', 'whitesmoke');
     }else{
         console.log('wizard options aint working');
     }
    
     console.log(userWizard);
 })
-//////// options buttons for wizards and game mode
 
 
 
@@ -206,6 +212,10 @@ $('#mainOptionsBtn').on('click', ()=>{
 $('.optionsCloseBtn').on('click', ()=>{
     $('.options').toggle('.optsionsShow');
 })
+
+
+
+
 
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
@@ -372,7 +382,7 @@ const battle = () =>{
                 $input = $('.inputVal').val();
                 if($input == userAnswers[randomA][randomQ]){
                     goodSpell();
-                    heroTurn = false;
+                    // heroTurn = false;
                     userWizard.attack(baddies[0]);
                     updateScores();
                     clearQuestion();
@@ -380,8 +390,6 @@ const battle = () =>{
                         killedEnemy();
                         console.log(baddies);
                         baddieLives = false;
-                    }else{
-                        heroTurn = false;
                     }
                 }else{
                     baddies[0].attack(userWizard);
@@ -402,292 +410,15 @@ const battle = () =>{
 
 
 
-//  updateScores();
-//  const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
-//  $('.battleDiv').append($banter);
 
 
-//  updateScores();
-//  const $banter = $('<p>').text(`${this.name}: I am attacking you, ${enemy.name}. ${enemy.name}: AHHHHH my health went from ${enemy.health + this.staffAttack} to ${enemy.health}`)
-//  $('.battleDiv').append($banter);
 
 
 
 
 
 
-// const randomQuestion = ()=>{
-//     let randomA = Math.floor(Math.random() * arrayNum);
-//     let randomQ = Math.floor(Math.random() * questionNum);
-//     let question = prompt(userQuestions[randomA][randomQ]);
-//     if(question == userAnswers[randomA][randomQ]){
-//         return true;
-//     }else{
-//         return false;
-//     }
-// }
 
 
 
 
-// const userAttacks = () =>{
-//     if(randomQuestion() == true){
-//         userWizard.attack(baddies[0]);
-//         if(baddies[0].health < 1){
-//             return false;
-//         }else{
-//             return true;
-//         }
-//     }else{
-//         return true;
-//     }
-// }
-
-
-
-// const baddiesAttack = () =>{
-//     baddies[0].attack(userWizard);
-//     if(userWizard.health < 1){
-//         return false;
-//     }else{
-//         return true;
-//     }
-// }
-
-
-// const battle = () =>{
-//     ///// set health score
-//     $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
-//     $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
-
-//     setTimeout(userAttacks, 1000);
-//     if(userAttacks == true){
-//         setTimeout(baddiesAttack, 1000);
-//     }else{
-//         killedEnemy();
-//     }
-// }
-
-
-
-// if(heroTurn == true){
-// {
-//         heroTurn = false;
-//         userWizard.attack(baddies[0]);
-//         if(baddies[0].health < 1){
-//             killedEnemy();
-//             console.log(baddies);
-//             baddieLives = false;
-//         }else{
-//             heroTurn = false;
-//                 }
-//     }
-// }else if(heroTurn == false){
-//     baddies[0].attack(userWizard);
-//     heroTurn = true;
-//     if(userWizard.health < 1){
-//         heroLives = false;
-//         youLose();
-//     }
-// }
-// }
-
-
-
-
-// const userAttacks = () =>{
-//     userWizard.attack(baddies[0]);
-
-// }
-
-// const baddiesAttack = () =>{
-//     baddies[0].attack(userWizard);
-
-// }
-
-
-// while(heroLives == true && baddieLives == true){
-//     if(heroTurn == true){
-//         let randomA = Math.floor(Math.random() * arrayNum);
-//         let randomQ = Math.floor(Math.random() * questionNum);
-//         let question = prompt(userQuestions[randomA][randomQ]);
-//         if(question == userAnswers[randomA][randomQ]){
-//             heroTurn = false;
-//             userWizard.attack(baddies[0]);
-//             $('battleBadHealth').children().remove();
-//             $('battleGoodHealth').children().remove();
-//             $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
-//             $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
-//             if(baddies[0].health < 1){
-//                 killedEnemy();
-//                 console.log(baddies);
-//                 baddieLives = false;
-//             }else{
-//                 heroTurn = false;
-//             }
-//         }
-        
-//     }else if(heroTurn == false){
-//         baddies[0].attack(userWizard);
-//         $('battleBadHealth').children().remove();
-//         $('battleGoodHealth').children().remove();
-//         $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
-//         $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
-//         heroTurn = true;
-//         if(userWizard.health < 1){
-//             heroLives = false;
-//             youLose();
-//         }
-//     }
-// }
-// }
-
-
-
-
-
-
-
-
-// const setUserWizard=(wizard)=>{
-//     $('.hutWizard').html(`<h1>Wizard: ${wizard}</h1>`);
-
-// }
-// const setuserQuestions = (mode)=>{
-//     $('.hutGameMode').html(`<h1>Game Mode: ${mode}`);
-
-// }
-// const startGame=(wiz, mode)=>{
-//     console.log(wiz)
-//     console.log(mode)
-//     $('.hutGameMode').html(`<h1>Game Mode: ${questionMode}`);
-//     $('.hutWizard').html(`<h1>Wizard: ${userWizard.name}</h1>`);
-
-
-// }
-
-// const setUserWizard=(wizard)=>{
-//     $('footer').html(`<h1>Wizard: ${wizard}</h1>`);
-
-// }
-// const setuserQuestions = (mode)=>{
-//     $('footer').html(`<h1>Game Mode: ${mode}`);
-
-// }
-
-
-
-
-
-
-///////////// if else determines numbers for random number lets, which is needed due to different easy, med, hard array lengths
-// let questionNum;
-// let arrayNum;
-// if(questionMode == 'easy'){
-//     // console.log('easy')
-//     questionNum = 10;
-//     arrayNum = 5;
-// }else if(questionMode == 'medium'){
-//     // console.log('medium')
-//     questionNum = 10;
-//     arrayNum = 10;
-// }else if(questionMode == 'hard'){
-//     // console.log('hard')
-//     questionNum = 12;
-//     arrayNum = 12;
-// }
-
-
-
-/////// set userWizard and userQuestions
-
-
-// const wizardSelectFunction = (choice)=>{
-//     if(choice == 'radagast'){
-//         var userWizard = radagast;
-//         console.log(userWizard);
-//         return userWizard;
-//     }else if(choice == 'ganandor'){
-//         var userWizard = ganandor;
-//         console.log(userWizard);
-//         return userWizard;
-//     }else if(choice == 'alatar'){
-//         var userWizard = alatar;
-//         console.log(userWizard);
-//         return userWizard;
-//     }else{
-//         console.log('no wizard selected')
-//     }
-// }
-// const questionModeSelectFunction = (choice)=>{
-//     if(choice == 'easy'){
-//         var questionMode = 'easy';
-//     }else if(choice == 'medium'){
-//         var questionMode = 'medium';
-//     }else if(choice == 'hard'){
-//         var questionMode = 'hard';
-//     }
-//     console.log(questionMode)
-// }
-
-
-
-
-
-
-// console.log(questionMode[randomQuestionArray][randomQuestion]);
-// console.log(answerMode[randomQuestionArray][randomQuestion])
-
-
-
-
-////////////////////////////////////////
-//////// ////////working code
-
-// const askQuestion = () =>{
-//     let randomA = Math.floor(Math.random() * arrayNum);
-//     let randomQ = Math.floor(Math.random() * questionNum);
-//     let question = prompt(userQuestions[randomA][randomQ]);
-//     if(question == userAnswers[randomA][randomQ]){
-//         return true;
-//     }else{
-//         return false;
-//     }
-// }
-
-
-
-
-// const battle = () =>{
-//     let heroLives = true;
-//     let baddieLives = true;
-//     let heroTurn = true;
-
-
-//     while(heroLives == true && baddieLives == true){
-//         updateScores();
-//         if(heroTurn == true){
-//             if(askQuestion() == true){
-//                 heroTurn = false;
-//                 userWizard.attack(baddies[0]);
-//                 if(baddies[0].health < 1){
-//                     killedEnemy();
-//                     console.log(baddies);
-//                     baddieLives = false;
-//                 }else{
-//                     heroTurn = false;
-//                 }
-//             }else{
-//                 heroTurn = false;
-//             }
-            
-//         }else if(heroTurn == false){
-//             baddies[0].attack(userWizard);
-//             heroTurn = true;
-//             if(userWizard.health < 1){
-//                 heroLives = false;
-//                 youLose();
-//             }
-//         }
-//     }
-// }
