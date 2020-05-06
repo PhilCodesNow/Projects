@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 ////////// create our hero choices
 class wizards{
     constructor(name, health, staffAttack){
@@ -34,9 +26,9 @@ let ganandor = new wizards('Ganandor', 15, 5);
 let radagast = new wizards('Radagast', 18, 4);
 
 
-let drakius = new evilWizards('Drakius', 17, 3);
-let vatrix = new evilWizards('Vatrix', 20, 5);
-let ador = new evilWizards('Ador', 24, 6);
+let drakius = new evilWizards('Drakius', 2, 3);
+let vatrix = new evilWizards('Vatrix', 2, 5);
+let ador = new evilWizards('Ador', 2, 6);
 
 let baddies = [drakius, vatrix, ador];
 
@@ -275,6 +267,9 @@ const showBaddies = () =>{
 const youWin = () =>{
     console.log('you win');
     $('.youWin').toggle('.youWinShow');
+    $('.youWinRestart').on('click', ()=>{
+        location.reload();
+    })
 }
 /////////////// lose function
 const youLose = () =>{
@@ -417,13 +412,6 @@ setTimeout(battle = () =>{
         
     })    
 }, 500);
-
-
-
-
-
-
-
 
 
 
