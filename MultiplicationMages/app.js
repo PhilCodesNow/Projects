@@ -272,7 +272,7 @@ $('.hutBattleBtn').on('click', ()=>{
     $('.battle').toggle('.battleShow');
 })
 $('.battleRetreatBtn').on('click', ()=>{
-    // userChoice();
+    userChoice();
     $('.battle').toggle('.battleShow');
 })
 
@@ -350,11 +350,6 @@ const updateScores = () =>{
     $('.battleGoodName').append('<p>').text(`You`);
     $('.battleGoodHealth').append('<p>').text(`${userWizard.health}`);
     $('.battleBadHealth').append('<p>').text(`${baddies[0].health}`);
-    ///////// updates wizard health in hut
-    $('.hutHudHealth').children().remove();
-    $('.hutHudHealth').append('<p>').text(`${userWizard.health}`)
-
-
 }
 
 
