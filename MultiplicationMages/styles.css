@@ -339,6 +339,7 @@ Hut Page
 }
 .hutShow{
     display: none;
+    z-index: 0;
 }
 .hutImg{
     position: absolute;
@@ -351,18 +352,29 @@ Hut Page
     position: absolute;
     top: 0;
     left: 5%;
+    padding: 1rem;
+    background-color: rgba(3, 33, 2, 0.8);
+    border-radius: 10px;
 }
 .hutHudMode{
     position: absolute;
     top: 0;
     right: 2%;
+    padding: 1rem;
+    background-color: rgba(3, 33, 2, 0.8);
+    border-radius: 10px;
 }
 .hutHudHealth{
     display: inline;
-
+    padding: 1rem;
+    background-color: rgba(3, 33, 2, 0.8);
+    border-radius: 10px;
 }
 .hutBaddies{
     display: inline;
+    padding: 1rem;
+    background-color: rgba(3, 33, 2, 0.8);
+    border-radius: 10px;
 }
 .hutButtons{
     margin-top: 3rem;
@@ -375,16 +387,44 @@ Hut Page
 }
 .hutBackBtn{
     font-family: 'Metamorphous', sans-serif;
+    padding: 3rem;
+    font-size: 10rem;
+    border-radius: 50%;
+    background-color: rgb(1, 50, 1);
+    border: none;
+    box-shadow: 3px -3px 5px black;
     position: absolute;
     bottom: 0;
     left: 0;
 }
 .hutBattleBtn{
     font-family: 'Metamorphous', sans-serif;
+    padding: 3rem;
+    font-size: 10rem;
+    border-radius: 50%;
+    background-color: rgb(1, 50, 1);
+    border: none;
+    box-shadow: -3px -3px 5px black;
     position: absolute;
     bottom: 0;
     right: 0;
 }
+.hutBattleBtn:hover{
+    text-shadow: 3px 3px 3px white;
+    transform: translateY(-2px);
+
+}
+.hutBackBtn:hover{
+    text-shadow: 3px 3px 3px white;
+    transform: translateY(-2px);
+}
+.hutBattleBtn:active{
+    transform: translateY(2px);
+}
+.hutBackBtn:active{
+    transform: translateY(2px);
+}
+
 
 /* 
 ////////////////////////////////////
