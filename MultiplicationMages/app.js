@@ -274,6 +274,7 @@ $('.hutBattleBtn').on('click', ()=>{
 $('.battleRetreatBtn').on('click', ()=>{
     userChoice();
     $('.battle').toggle('.battleShow');
+
 })
 
 
@@ -408,7 +409,9 @@ const battle = () =>{
     // let baddieLives = true;
     battleBtn();
     submitBtn();
-
+    $('.battleRetreateBtn').on('click', ()=>{
+        
+    })    
 }
 
 
