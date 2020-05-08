@@ -17,7 +17,15 @@ document.getElementById('inputForm').value = '1';
 // console.log(userInput);
 
 
-
+const inputSubtract=()=>{
+    input = document.getElementById('inputForm');
+    input.value = input.value - 1;
+}
+const inputAdd = () =>{
+    input = document.getElementById('inputForm');
+    number = parseInt(input.value);
+    input.value = number + 1;
+}
 
 
 ////// makes add button add from counter and display to result <p>
@@ -29,6 +37,7 @@ const add = () =>{
     result = document.getElementById('result');
     result.removeChild;
     result.innerHTML = `${currentCount}`;
+    ////// sets color to black or red if pos or neg
     if(currentCount > -1){
         document.getElementById('result').style.color = 'black';
     }
@@ -43,6 +52,7 @@ const subtract = () =>{
     result = document.getElementById('result');
     result.removeChild;
     result.innerHTML = `${currentCount}`;
+    ///// sets color to black or red if pos or neg
     if(currentCount < 0){
         document.getElementById('result').style.color = 'red';
     }

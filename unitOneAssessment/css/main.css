@@ -44,3 +44,36 @@ h2{
     margin: 0 1rem;
     font-size: 7rem;
 }
+.mobileBtnsFlex{
+    display: flex;
+    justify-content: space-evenly;
+}
+.mobileBtnsFlex button{
+    font-size: 2rem;
+    width: 12rem;
+    height: 8rem;
+    border-radius: 1rem;
+    background-color: grey;
+    color: white;
+}
+.mobileBtns{
+    display: none;
+}
+@media (max-width: 400px){
+    h1{
+        font-size: 5rem;
+    }
+    .result{
+        font-size: 15rem;
+    }
+    #inputForm{
+        max-width: 14rem;
+        margin: 0;
+    }
+    .counter button{
+        margin: 0;
+    }
+    .mobileBtns{
+        display: block;
+    }
+}
