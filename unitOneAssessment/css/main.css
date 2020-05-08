@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 62.5%;
+}
+h1{
+    font-size: 8rem;
+    margin-top: 3rem;
+}
+h2{
+    font-size: 4rem;
+    margin: 3rem 0;
+    margin-top: 6rem;
+}
+.result{
+    font-size: 12rem;
+    margin-bottom: 2rem;
+}
+.counter{
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+}
+.counter button{
+    font-size: 5rem;
+    margin: 0 1rem;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 1rem;
+    background-color: grey;
+    color: white;
+}
+.counter button:hover{
+    background-color: white;
+    color: grey;
+    cursor: pointer;
+}
+#inputForm{
+    max-width: 22rem;
+    height: 11rem;
+    border: .5rem solid grey;
+    border-radius: 1rem;
+    margin: 0 1rem;
+    font-size: 7rem;
+}
