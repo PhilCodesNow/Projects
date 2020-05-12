@@ -1,0 +1,81 @@
+/* 'Acme'
+'Source Code Pro'
+
+#25274D Dark Navy Blue 
+#464866 dark grey
+#AAABB8 light grey
+#2E9CCA light blue
+#29648A dark blue */
+/* :title{
+    font-family: 'Source Code Pro', sans-serif;
+} */
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    font-family: 'Source Code Pro', sans-serif;
+}
+body{
+    width: 90%;
+    margin: 0 auto;
+}
+/* Title */ 
+.title h1{
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'Acme', sans-serif;
+}
+.title h3{
+    font-size: 2rem;
+    text-align: center;
+}
+/* nav bar */
+.navNavigation{
+    font-size: 7rem;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navNavigation li{
+    padding: 0;
+    margin: 0;
+}
+.navNavigation button{
+    font-family: 'Acme', sans-serif;
+}
+/* header */
+header{
+    border-top: 1px solid black;
+    padding-top: 1rem;
+    margin-top: 2rem;
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-align: left;
+}
+/* Project section */
+.projects h2{
+    font-size: 3rem;
+    text-align: center;   
+}
+.projectsDiv{
+    width: 100%;
+    background-color: grey;
+    text-align: center;
+    margin: 1rem auto;
+    font-size: 3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
