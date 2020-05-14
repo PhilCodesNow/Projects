@@ -1,14 +1,13 @@
 /* 'Acme'
 'Source Code Pro'
-
-#25274D Dark Navy Blue 
-#464866 dark grey
-#AAABB8 light grey
-#2E9CCA light blue
-#29648A dark blue */
-/* :title{
-    font-family: 'Source Code Pro', sans-serif;
-} */
+*/
+:root {
+    --darkNavy: #25274D;
+    --darkGrey: #464866;
+    --lightGrey: #AAABB8;
+    --lightBlue: #2E9CCA;
+    --darkBlue: #29648A;
+}
 *{
     margin: 0;
     padding: 0;
@@ -30,6 +29,7 @@ body{
     text-align: center;
 }
 /* nav bar */
+
 .navNavigation{
     font-size: 7rem;
     list-style-type: none;
@@ -55,19 +55,53 @@ header{
     font-size: 2.5rem;
     text-align: left;
 }
-/* Project section */
+/* Project Divs Section */
 .projects h2{
     font-size: 3rem;
     text-align: center;   
 }
 .projectsDiv{
     width: 100%;
-    background-color: grey;
     text-align: center;
     margin: 1rem auto;
     font-size: 3rem;
+    position: relative;
 }
 
+@media (min-width: 800px){
+    /* nav bar */
+    .title{
+        position: absolute;
+        top: 0;
+        left: 2%;
+        max-width: 30%;
+    }
+    .title h1{
+        text-align: left;
+    }
+    .title h3{
+        text-align: left;
+    }
+    .navNavigation{
+        position: sticky;
+        top: 0px;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 6rem;
+    }
+    .navNavigation li{
+        margin: 0 2rem;
+    }
+    /* header */
+    /* Project Divs Section */
+    .projectsFlex{
+        display: flex;
+    }
+    .projectsDiv{
+        width: 30%;
+    }
+
+}
 
 
 
