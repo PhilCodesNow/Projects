@@ -59,7 +59,15 @@ header{
 .slide{
     font-size: 3rem;
     text-align: center;
-    
+    display: none;
+}
+.carouselArrows{
+    display: flex;
+    justify-content: space-evenly;
+}
+.carouselArrows p{
+    font-size: 15em;
+
 }
 
 
