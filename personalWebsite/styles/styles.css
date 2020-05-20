@@ -55,6 +55,14 @@ header{
     font-size: 2.5rem;
     text-align: left;
 }
+/* Project Carousel */
+.slide{
+    font-size: 3rem;
+    text-align: center;
+    
+}
+
+
 /* Project Divs Section */
 .projects h2{
     font-size: 3rem;
