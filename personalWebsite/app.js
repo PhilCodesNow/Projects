@@ -1,3 +1,5 @@
+
+//////// 
 let carouselIndex = 0;
 
 function plusSlides(n){
@@ -5,8 +7,6 @@ function plusSlides(n){
 }
 
 let slides = document.getElementsByClassName('slide');
-
-
 
 function showSlides(n){
     console.log(slides)
@@ -23,6 +23,4 @@ function showSlides(n){
     // slides[carouselIndex].style.display = "none";
     slides[carouselIndex].style.display = "block";
 }
-
-
 showSlides(carouselIndex)
