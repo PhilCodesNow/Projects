@@ -9,12 +9,12 @@ let slides = document.getElementsByClassName('slide');
 
 
 function showSlides(n){
+    console.log(slides)
     console.log('length' + slides.length)
     console.log('n' + n)
     if(n > slides.length){
         slideIndex = 0;
-    }
-    if(n < 0){
+    }else if(n < 0){
         slideIndex = slides.length;
  }
     for(let i = 0; i < slides.length; i++){
@@ -24,8 +24,6 @@ function showSlides(n){
     slides[carouselIndex].style.display = "block";
     
 }
-
-
 
 
 showSlides(carouselIndex)
