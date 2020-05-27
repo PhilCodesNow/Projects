@@ -9,9 +9,6 @@ function plusSlides(n){
 let slides = document.getElementsByClassName('slide');
 
 function showSlides(n){
-    console.log(slides)
-    console.log('length' + slides.length)
-    console.log('carouselIndex = ' + carouselIndex)
     if(carouselIndex > slides.length - 1){
         carouselIndex = 0;
     }else if(carouselIndex < 0){

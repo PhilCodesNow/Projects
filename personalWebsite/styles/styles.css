@@ -13,6 +13,7 @@
     padding: 0;
     font-size: 62.5%;
     font-family: 'Source Code Pro', sans-serif;
+    box-sizing: border-box;
 }
 body{
     width: 90%;
@@ -59,6 +60,7 @@ header img{
     border-radius: 10px;
 }
 header{
+    max-width: 55rem;
     border-top: 1px solid black;
     padding-top: 1rem;
     margin-top: 2rem;
@@ -68,6 +70,7 @@ header{
     font-size: 2.5rem;
     text-align: left;
     position: relative;
+    margin: 0 auto;
 }
 header p{
     position: absolute;
@@ -80,6 +83,9 @@ header p{
 .projectCarousel{
     background-color: var(--lightGrey);
     border-radius: 4rem;
+    max-width: 55rem;
+    margin: 0 auto;
+    margin-top: 3rem;
 }
 
 .projectCarousel h2{
@@ -104,6 +110,7 @@ header p{
 .carouselArrows{
     display: flex;
     justify-content: space-evenly;
+    font-size: .4rem;
 }
 .carouselArrows p{
     font-size: 15em;
@@ -113,6 +120,8 @@ header p{
 /* Project Section */
 .projects{
     background-color: var(--darkGrey);
+    max-width: 130rem;
+    margin: 0 auto;
 }
 .projects h2{
     font-size: 3rem;
@@ -136,20 +145,8 @@ header p{
     padding: .7rem;
     margin: 1rem;
 }
-@media (min-width: 800px){
+@media (min-width: 700px){
     /* nav bar */
-    .title{
-        position: absolute;
-        top: 0;
-        left: 2%;
-        max-width: 30%;
-    }
-    .title h1{
-        text-align: left;
-    }
-    .title h3{
-        text-align: left;
-    }
     .navNavigation{
         position: sticky;
         top: 0px;
@@ -171,6 +168,53 @@ header p{
 
 }
 
+@media (min-width: 1150px){
+    /* title  */
+    .title h1{
+        font-size: 9rem;
+    }
+    .title h3{
+        font-size: 5rem;
+    }
+    /* navbar */
+    .navNavigation{
+        font-size: 15rem;
+    }
+    .headerBorderless{
+        width: 45%;
+        height: 30rem;
+        margin: 0;
+        padding: 0;
+        font-size: 2.5rem;
+        text-align: left;
+        position: relative;
+        border-radius: 10px;
+        border: 3px solid var(--lightGrey);
+    }
+    .headerBorderless img{
+        height: 100%;
+
+    }
+    .headerBorderless p{
+        font-size: 1.8rem;
+    }
+    .projectCarousel{
+        width: 45%;
+        height: 30rem;
+        border-radius: 10px;
+        margin: 0;
+        padding: 0;
+    }
+    .slide{
+        font-size: 3.2rem;
+    }
+    .websiteFlex{
+        display: flex; 
+        justify-content: space-evenly;
+        max-width: 170rem;
+        margin: 0 auto;
+    }
+}
 
 
 
