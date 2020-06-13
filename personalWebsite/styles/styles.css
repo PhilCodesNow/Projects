@@ -99,6 +99,9 @@ header p{
     text-align: center;
     display: none;
 }
+.slide a{
+    font-size: 2rem;
+}
 .slide button{
     font-size: 2rem;
     background-color: var(--darkGrey);
@@ -137,6 +140,9 @@ header p{
     font-size: 3rem;
     position: relative;
     background-color: var(--darkBlue)
+}
+.projectsDiv a{
+    font-size: 2rem;
 }
 .projectsDiv button{
     font-size: 2rem;
