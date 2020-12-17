@@ -13,28 +13,29 @@ function App() {
     const name = toDoNameRef.current.value
     if (name === '') return
     setTodos(prevTodos => {
+      localStorage.setItem('Todos', [...prevTodos, name])
       return [...prevTodos, {id: uuid(), name: name, complete: false}]
+
     })
     toDoNameRef.current.value = null
   }
 
   function toggleTodo(id) {
     const newTodos = [...todos]
-    console.log(newTodos)
     const todo = newTodos.find(todo => todo.id === id)
     todo.complete = !todo.complete
     setTodos (newTodos)
   }
+ 
 /*   useEffect(() =>{
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+  }, [todos])
+
+  useEffect(() =>{
     const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
     if (storedTodos) setTodos(storedTodos)
-    setTodos()
-  }, [])
-  useEffect(() =>{
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
-  }, [todos]) */
-
-
+  }, [])  */
+ 
   return (
     <>
     <h1>App Here</h1>
