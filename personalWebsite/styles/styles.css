@@ -47,10 +47,17 @@ body{
 }
 .navNavigation button{
     font-family: 'Acme', sans-serif;
+    background-color: var(--darkNavy);
+    color: var(--lightGrey);
+
+    border: none;
+    padding: 2rem;
+    border-radius: 5rem;
+}
+.navNavigation button:hover{
     background-color: var(--lightGrey);
     color: var(--darkNavy);
-    border: none;
-    padding: .5rem;
+    cursor: pointer;
 }
 /* header */
 header img{
@@ -131,15 +138,26 @@ header p{
     margin-top: 3rem;
     text-align: center;
     color: var(--lightBlue);
-    
+}
+.projectsFlex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .projectsDiv{
-    width: 100%;
     text-align: center;
-    margin: 1rem auto;
-    font-size: 3rem;
     position: relative;
+    border-radius: 2rem;
+    max-width: 20%;
+    min-width: 20%;
+    margin: 1.5rem;
+    padding: 1rem;
+    font-size: 3rem;
     background-color: var(--darkBlue)
+}
+.projectsDiv:hover{
+    box-shadow: 5px 5px 10px black;
 }
 .projectsDiv a{
     font-size: 2rem;
@@ -150,6 +168,12 @@ header p{
     color: var(--darkBlue);
     padding: .7rem;
     margin: 1rem;
+    border-radius: 5rem;
+}
+.projectsDiv button:hover{
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 1px 1px 12px black;
 }
 @media (min-width: 700px){
     /* nav bar */
