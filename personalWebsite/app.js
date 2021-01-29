@@ -27,8 +27,28 @@ showSlides(carouselIndex)
 const typewriterTextName = "Hi there. I'm Philip Mayo"
 const typewriterTextTitle = " I'm a Fullstack Software Developer";
 let shownTextName = ''
-let shownTextTitle
-let textI = 0;
+let shownTextTitle = ''
+let textN = 0;
+let textT = 0;
+
+
+
+function setTypewriterTitleLoop (){
+    $('#title_typewriter_title').text(shownTextTitle)
+    setTimeout(setTypewriterTitle, 160)
+}
+
+
+function setTypewriterTitle () {
+    if(textT < typewriterTextTitle.length){
+        shownTextTitle += typewriterTextTitle.charAt(textT)
+        textT++
+        setTypewriterTitleLoop()
+    } 
+    
+}
+setTimeout(setTypewriterTitle, 5000)
+
 
 function setTypewriterLoop (){
     $('#title_typewriter_name').text(shownTextName)
@@ -38,13 +58,11 @@ function setTypewriterLoop (){
 
 function setTypewriter () {
 
-    if(textI < typewriterTextName.length){
-        shownTextName += typewriterTextName.charAt(textI)
-        textI++
+    if(textN < typewriterTextName.length){
+        shownTextName += typewriterTextName.charAt(textN)
+        textN++
         setTypewriterLoop()
     } 
     
 }
 setTypewriter()
-
-
