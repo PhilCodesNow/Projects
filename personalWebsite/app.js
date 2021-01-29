@@ -1,5 +1,5 @@
 
-//////// 
+/////////////////////// Favorite Projects Carousel
 let carouselIndex = 0;
 
 function plusSlides(n){
@@ -21,3 +21,30 @@ function showSlides(n){
     slides[carouselIndex].style.display = "block";
 }
 showSlides(carouselIndex)
+
+
+//////////////////// Typewriter Animation
+const typewriterTextName = "Hi there. I'm Philip Mayo"
+const typewriterTextTitle = " I'm a Fullstack Software Developer";
+let shownTextName = ''
+let shownTextTitle
+let textI = 0;
+
+function setTypewriterLoop (){
+    $('#title_typewriter_name').text(shownTextName)
+    setTimeout(setTypewriter, 175)
+}
+
+
+function setTypewriter () {
+
+    if(textI < typewriterTextName.length){
+        shownTextName += typewriterTextName.charAt(textI)
+        textI++
+        setTypewriterLoop()
+    } 
+    
+}
+setTypewriter()
+
+
