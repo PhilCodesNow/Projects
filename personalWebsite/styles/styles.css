@@ -114,8 +114,15 @@ header p{
     background-color: var(--darkGrey);
     color: var(--lightGrey);
     border: none;
-    padding: .6rem;
+    padding: 1rem;
     margin-bottom: 1rem;
+    border-radius: 20px;
+    
+}
+.slide button:hover{
+    box-shadow: 4px 4px 5px var(--lightBlue);
+    cursor: pointer;
+    color: var(--lightBlue);
 }
 .carouselArrows{
     display: flex;
@@ -124,6 +131,9 @@ header p{
 }
 .carouselArrows p{
     font-size: 15em;
+}
+.carouselArrows p:hover{
+    cursor: pointer;
 }
 
 
