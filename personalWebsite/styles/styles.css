@@ -105,6 +105,7 @@ header p{
     font-size: 3rem;
     text-align: center;
     display: none;
+    height: 53%;
 }
 .slide a{
     font-size: 2rem;
